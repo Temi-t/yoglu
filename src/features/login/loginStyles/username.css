@@ -1,0 +1,60 @@
+
+.username-page{
+    /* background: pink; */
+    position: relative;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    /* height: 84.1vh; */
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+  .arr-back .arrow{
+    /* background: rgba(255,255,255,0.5); */
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    margin-left: 1rem;
+  }
+  .username-name{
+    /* background: orange; */
+    font-size: 2rem;
+    padding: 6rem 2rem ;
+    height: 20rem;
+    width: 100%;
+  }
+  /* reduce username-name height to 15rem at <450px */
+  .username-input{
+    /* background: aqua; */
+    width: 85%;
+    height: 10rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .check-circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    background: grey;
+    /* position: fixed;
+    top: 1rem;
+    left: 6rem; */
+  }
+  
+  .check-container{
+    /* background: pink; */
+    margin-top: 1.5rem;
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+  }

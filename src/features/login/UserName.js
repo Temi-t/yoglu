@@ -1,0 +1,82 @@
+import Login from '../../components/Login.js';
+import './loginStyles/username.css';
+import { IoIosArrowBack } from "react-icons/io";
+import { BiCheckCircle } from "react-icons/bi";
+import { Link } from 'react-router-dom';
+import { TextField } from '@material-ui/core';
+import { styled, makeStyles } from '@material-ui/core/styles';
+
+// const UserInput = styled(TextField)({
+//     color: "white",
+//     fontSize: 40,
+//     background: "pink"
+// });
+
+const useStyles = makeStyles({
+    // textField: {},
+    input: {
+        color: 'white',
+        fontSize: '2rem'
+    }
+});
+
+export default function UserName () {
+    const classes = useStyles();
+    return(
+        <div>
+            <Login />
+            <div className="username-page">
+                
+                    <div className="arr-back">
+                        <Link to='/'>
+                            <IoIosArrowBack className="arrow" />
+                        </Link>
+                    </div>
+                
+                <div className="username-name">
+                    <span>Let's begin with your</span>
+                    <h1>Name</h1>
+                </div>
+                <div className="username-input">
+                    {/* <input type="text" placeholder="John Doe"/> */}
+
+                    <TextField 
+                        // className={classes.textField}
+                        id="standard-basic" 
+                        label="Name"
+                        placeholder="John Doe"
+                        required
+                        InputProps={{
+                            className: classes.input,
+                        }}
+                    />
+                    {/* <UserInput 
+                        id="standard-basic" 
+                        label="Name"
+                        // helperText="e.g. John Doe"
+                        placeholder="John Doe"
+                        required
+                    /> */}
+
+                   
+
+                    <div className="check-container">
+                        <Link to="/package">
+                            <div className="check-circle"> 
+                                <BiCheckCircle size="2.5rem" color="white"/>
+                                {/* color="light green"  */}
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+// const nameChecker =()=>{
+//     if(userName !== ""){
+//         make checker green
+//         navigate to the next page
+//     }
+// }
