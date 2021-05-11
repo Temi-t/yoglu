@@ -1,0 +1,109 @@
+/* screen 1 */
+.screen-1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* height: 100vh; */
+    /* width: 100%; */
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+  .yellow-bg{
+    /* background: rgb(255, 255, 0, 0.5); */
+    background: #FFFF7F;
+    height: 4vh;
+    width: 100%;
+  }
+  .blue-bg{
+    height: 96vh;
+    width: 100%;
+    background: #1E4072; 
+  }
+  .arrows{
+    display: flex;
+    justify-content: space-around;
+  }
+  .left-arr, .right-arr{
+    /* background: yellow; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 8rem;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .right-arr > span{
+    margin-left: -1rem;
+  }
+  
+  .arr{
+    background: rgba(255,255,255,0.5);
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* for any first child of .arr */
+  .arr:first-of-type{
+    color: #1E4072;
+    font-weight: 1500;
+  }
+  .logo-page{
+    /* background: #86867280; */
+    position: relative;
+    top: 8rem;
+    left: 0;
+    width: 100%;
+    height: 84.1vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .logo-container{
+    height: 35%;
+    color: #fff;
+    /* background: pink; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .smart{
+    font-weight: 1000;
+    font-size: 2.5rem;
+  }
+  .arr-up{
+    width: 6.25rem;
+    height: 6.25rem;
+    /* background: aqua; */
+    background: #FFFF7F;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    position: relative;
+    bottom: -2.5rem;
+  }
+  .arr-up > div{
+    background: rgba(0,0,0, 0.8);
+    height: 4.7rem;
+    width: 4.7rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .select-lang{
+    background: #FFFF7F;
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  

@@ -1,0 +1,72 @@
+.package-page{
+    position: relative;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    /* background: rgba(255,255,255, 0.3); */
+}
+.arr-back .arrow{
+    /* background: rgba(255,255,255,0.5); */
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    /* margin-left: 1rem; */
+  }
+  .shipping-query p{
+      margin: 2rem;
+      color: white;
+      font-size: 1.5rem;
+  }
+  .all-packages{
+      /* background: rgba(158, 64, 64, 0.3);  */
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+  }
+  .package-container{
+      /* background: rgba(5, 158, 64, 0.6);  */
+      width: 6rem;
+      height: 8rem;
+      /* color: white; */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      /* text-align: center; */
+  }
+  .package-container span{
+      color: white;
+  }
+  .package-circle{
+      background: #FFFF7F;
+      height: 5rem;
+      width: 5rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .arr-forward{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    /* background: pink; */
+  }
+  .arr-container{
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      margin-left: -1rem;
+      margin-top: 2rem;
+  }
+  
