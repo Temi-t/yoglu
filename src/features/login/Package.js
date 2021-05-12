@@ -77,9 +77,11 @@ export default function Package () {
 
                 </div>
                 <div className="arr-container">
+                    <Link to="/phone">
                     <div className="arr-forward">
                             <IoIosArrowForward />
-                    </div>
+                        </div>
+                        </Link>
                 </div>
             </div>
         </div>
