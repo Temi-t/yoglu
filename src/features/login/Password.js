@@ -42,32 +42,33 @@ export default function Password() {
                     </div>
                 
                     <div className="password-name">
-                        <span>Let's create a </span>
+                        <span><i><h6>Let's create a</h6></i> </span>
                         <h2>Password</h2>
                     </div>
                     <div className="password-input">
-                        <Input
-                            type={values.showPassword ? "text" : "password"}
-                            onChange={handlePasswordChange("password")}
-                            value={values.password}
-                            placeholder = "***********"
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        onClick={handleClickShowPassword}
-                                        onMouseDown={handleMouseDownPassword}
-                                    >
-                                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                                    </IconButton>
-                                </InputAdornment>
-                            }
-                        />
-                        <Input
-                            type = {"password"}
-                            placeholder="Repeat Password"
-                        />
+                            <Input
+                                type={values.showPassword ? "text" : "password"}
+                                onChange={handlePasswordChange("password")}
+                                value={values.password}
+                                placeholder = "***********"
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                        >
+                                            {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                            
+                            /><br />
+                            <Input
+                                type = {"password"}
+                                placeholder="Confirm Password"
+                            />
                         <div className="check-container">
-                            <Link to="/">
+                            <Link to="/email">
                                 <div className="check-circle">
                                     <BiCheckCircle size="2.5rem" color="white" />
                                     {/* color="light green"  */}

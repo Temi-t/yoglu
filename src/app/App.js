@@ -4,6 +4,7 @@ import Package from '../features/login/Package.js';
 import Phone from '../features/login/Phone.js';
 import OtpInputs from '../features/login/OtpInputs';
 import Password from '../features/login/Password.js';
+import Email from '../features/login/Email.js';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { IconContext } from "react-icons";
 
@@ -22,6 +23,7 @@ function App() {
               <Route path="/phone" component={Phone}  />
               <Route path="/otpInputs" component={OtpInputs}  />
               <Route path="/password" component={Password}  />
+              <Route path="/email" component={Email}  />
             </Switch>
         </div>
       </Router>

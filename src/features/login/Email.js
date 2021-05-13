@@ -1,5 +1,5 @@
 import Login from '../../components/Login.js';
-import './loginStyles/phone.css';
+import './loginStyles/email.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
@@ -19,31 +19,35 @@ export default function Phone () {
     return(
         <div>
             <Login />
-            <div className="phone-page">
+            <div className="email-page">
                 
                     <div className="arr-back">
-                        <Link to='/package'>
+                        <Link to='/password'>
                             <IoIosArrowBack className="arrow" />
                         </Link>
                     </div>
                 
-                <div className="phone-name">
-                    <span><i><h6>Enter your</h6></i></span>
-                    <h2>Phone Number</h2>
+                <div className="email-name">
+                    <span><i><h6>Please Enter your</h6></i></span>
+                    <h2>Email ID</h2>
                 </div>
-                <div className="phone-input">
-                    <TextField 
+                <div className="email-input">
+                    <TextField
+                        type = "email"
                         id="standard-basic" 
-                        // label="Phone Number"
-                        placeholder="+234"
+                        label="Email"
+                        placeholder="john@example.com"
                         required
                         InputProps={{
                             className: classes.input,
                         }}
+                        
                     />
-                    
+                    <div style={{ marginTop:"1rem"}}>
+                        <span>We Will never spam you. We promise</span>
+                    </div>
                     <div className="check-container">
-                        <Link to="/otpInputs">
+                        <Link to="/#">
                             <div className="check-circle"> 
                                 <BiCheckCircle size="2.5rem" color="white"/>
                                 {/* color="light green"  */}
