@@ -22,7 +22,7 @@ export default function Phone () {
             <div className="phone-page">
                 
                     <div className="arr-back">
-                        <Link to='/'>
+                        <Link to='/package'>
                             <IoIosArrowBack className="arrow" />
                         </Link>
                     </div>
@@ -43,7 +43,7 @@ export default function Phone () {
                     />
                     
                     <div className="check-container">
-                        <Link to="/Otp">
+                        <Link to="/otpInputs">
                             <div className="check-circle"> 
                                 <BiCheckCircle size="2.5rem" color="white"/>
                                 {/* color="light green"  */}
