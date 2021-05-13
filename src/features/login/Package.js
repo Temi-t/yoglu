@@ -1,4 +1,4 @@
-import Login from '../../components/Login.js'
+// import Login from '../../components/Login.js'
 import './loginStyles/package.css';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -12,16 +12,16 @@ import { IoDocumentsOutline } from "react-icons/io5"
 
 
 
-const packages = [
-    GiPineapple, GiSlicedBread, FcSmartphoneTablet,
-    FcPhoneAndroid, IoDocumentsOutline, CgFileDocument,
-    GiAmpleDress, GiTravelDress, FcHome,GoHome, GiPalette
-]
+// const packages = [
+//     GiPineapple, GiSlicedBread, FcSmartphoneTablet,
+//     FcPhoneAndroid, IoDocumentsOutline, CgFileDocument,
+//     GiAmpleDress, GiTravelDress, FcHome,GoHome, GiPalette
+// ]
 
 export default function Package () {
     return(
-        <div>
-            <Login />
+        <div className="blue-bg">
+            <div className="yellow-bg"></div>
             <div className="package-page">
                 
                     <div className="arr-back">
@@ -76,9 +76,12 @@ export default function Package () {
                     </div>
 
                 </div>
+
                 <div className="arr-container">
                     <div className="arr-forward">
-                            <IoIosArrowForward />
+                        <Link to="/usernumber">
+                            <IoIosArrowForward className="arrow" />
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import Logo from '../features/login/Logo.js';
 import UserName from '../features/login/UserName.js';
 import Package from '../features/login/Package.js';
+import UserNumb from '../features/login/UserNumb';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { IconContext } from "react-icons";
 
@@ -13,9 +14,10 @@ function App() {
       <Router>
         <div className="App">
             <Switch>
-              <Route path="/" exact component={Logo} />
+              <Route path="/yoglu" exact component={Logo} />
               <Route path="/username" component={UserName} />
               <Route path="/package" component={Package}  />
+              <Route path="/usernumber" component={UserNumb} />
             </Switch>
         </div>
       </Router>
