@@ -1,26 +1,32 @@
 /* screen 1 */
-.screen-1{
+/* .screen-1{
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    /* height: 100vh; */
-    /* width: 100%; */
-    /* display: flex; */
-    /* flex-direction: column; */
   }
+   */
   .yellow-bg{
-    /* background: rgb(255, 255, 0, 0.5); */
     background: #FFFF7F;
     height: 4vh;
     width: 100%;
   }
   .blue-bg{
-    height: 96vh;
+    height: 100%;
     width: 100%;
     background: #1E4072; 
+    /* display: flex;
+    flex-direction: column; */
   }
+  /* .landing-page{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background: green;
+  } */
   .arrows{
     display: flex;
     justify-content: space-around;
@@ -54,16 +60,18 @@
   }
   .logo-page{
     /* background: #86867280; */
-    position: relative;
+    padding-top: 3rem;
+    /* position: relative;
     top: 8rem;
-    left: 0;
+    left: 0; */
     width: 100%;
-    height: 84.1vh;
+    height: 100%;
+    /* height: 84.1vh; */
     display: flex;
     flex-direction: column;
   }
   .logo-container{
-    height: 35%;
+    height: 30%;
     color: #fff;
     /* background: pink; */
     display: flex;
@@ -74,6 +82,14 @@
   .smart{
     font-weight: 1000;
     font-size: 2.5rem;
+  }
+  .lang-container{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .arr-up{
     width: 6.25rem;
@@ -100,10 +116,12 @@
   .select-lang{
     background: #FFFF7F;
     width: 100%;
-    height: 15rem;
+    /* at screens less than 350, reduce height to 12 rem */
+    height: 12rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
   }
+   
   

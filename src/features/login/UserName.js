@@ -1,4 +1,5 @@
-import Login from '../../components/Login.js';
+// import Login from '../../components/Login.js';
+import React from 'react';
 import './loginStyles/username.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
@@ -23,12 +24,13 @@ const useStyles = makeStyles({
 export default function UserName () {
     const classes = useStyles();
     return(
-        <div>
-            <Login />
+        <div className="blue-bg">
+            {/* <Login /> */}
+            <div className="yellow-bg"></div>
             <div className="username-page">
                 
                     <div className="arr-back">
-                        <Link to='/'>
+                        <Link to='/yoglu'>
                             <IoIosArrowBack className="arrow" />
                         </Link>
                     </div>

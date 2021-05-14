@@ -1,8 +1,9 @@
+import React from 'react';
 import Login from '../../components/Login.js';
 import './loginStyles/password.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
-import { Link } from 'react-router-dom';import React from "react";
+import { Link } from 'react-router-dom';
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";

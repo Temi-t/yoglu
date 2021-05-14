@@ -1,9 +1,22 @@
+.yellow-bg{
+    background: #FFFF7F;
+    height: 4vh;
+    width: 100%;
+  }
+  .blue-bg{
+    height: 100%;
+    width: 100%;
+    background: #1E4072; 
+  }
 .package-page{
-    position: relative;
-    top: 5rem;
-    left: 0;
+    padding-top: 3rem;
+    height: 100%;
     width: 100%;
     /* background: rgba(255,255,255, 0.3); */
+}
+.arr-back{
+    /* background: grey; */
+    width: 5rem;
 }
 .arr-back .arrow{
     /* background: rgba(255,255,255,0.5); */
@@ -22,22 +35,22 @@
       color: white;
       font-size: 1.5rem;
   }
-  .all-packages{
+  .all-packages-grid{
       /* background: rgba(158, 64, 64, 0.3);  */
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
+      width: 90%;
+      margin: auto;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
   }
   .package-container{
-      /* background: rgba(5, 158, 64, 0.6);  */
+      /* background: rgba(61, 100, 76, 0.6);  */
       width: 6rem;
       height: 8rem;
       /* color: white; */
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      /* text-align: center; */
   }
   .package-container span{
       color: white;
@@ -51,7 +64,7 @@
       justify-content: center;
       align-items: center;
   }
-  .arr-forward{
+  .arr-forward .arrow{
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
@@ -69,4 +82,9 @@
       margin-left: -1rem;
       margin-top: 2rem;
   }
-  
+  @media(max-width: 340px){
+    .all-packages-grid{
+        width: 95%;
+        /* background: grey; */
+    }
+  }

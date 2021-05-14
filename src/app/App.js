@@ -1,3 +1,4 @@
+import React from 'react';
 import Logo from '../features/login/Logo.js';
 import UserName from '../features/login/UserName.js';
 import Package from '../features/login/Package.js';
@@ -17,7 +18,7 @@ function App() {
       <Router>
         <div className="App">
             <Switch>
-              <Route path="/" exact component={Logo} />
+              <Route path="/yoglu" exact component={Logo} />
               <Route path="/username" component={UserName} />
               <Route path="/package" component={Package}  />
               <Route path="/phone" component={Phone}  />

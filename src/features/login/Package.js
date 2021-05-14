@@ -1,27 +1,27 @@
-import Login from '../../components/Login.js'
+// import Login from '../../components/Login.js'
+import React from 'react';
 import './loginStyles/package.css';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { GiPineapple, GiSlicedBread } from "react-icons/gi";
-import { FcSmartphoneTablet, FcPhoneAndroid, FcHome } from "react-icons/fc";
+import {  FcPhoneAndroid } from "react-icons/fc";
 import { CgFileDocument } from "react-icons/cg";
-import { GiAmpleDress, GiTravelDress, GiPalette } from "react-icons/gi";
+import {  GiTravelDress } from "react-icons/gi";
 import { GoHome } from "react-icons/go";
-import { IoDocumentsOutline } from "react-icons/io5"
 
 
 
 
-const packages = [
-    GiPineapple, GiSlicedBread, FcSmartphoneTablet,
-    FcPhoneAndroid, IoDocumentsOutline, CgFileDocument,
-    GiAmpleDress, GiTravelDress, FcHome,GoHome, GiPalette
-]
+// const packages = [
+//     GiPineapple, GiSlicedBread, FcSmartphoneTablet,
+//     FcPhoneAndroid, IoDocumentsOutline, CgFileDocument,
+//     GiAmpleDress, GiTravelDress, FcHome,GoHome, GiPalette
+// ]
 
 export default function Package () {
     return(
-        <div>
-            <Login />
+        <div className="blue-bg">
+            <div className="yellow-bg"></div>
             <div className="package-page">
                 
                     <div className="arr-back">
@@ -35,7 +35,7 @@ export default function Package () {
                     what type of packages 
                     do you often ship?</p>
                 </div>
-                <div className="all-packages">
+                <section className="all-packages-grid">
                     <div className="package-container">
                         <div className="package-circle">
                             < GiPineapple size="3rem" color="rgba(38, 38, 38, 0.8)" />
@@ -62,7 +62,6 @@ export default function Package () {
                     </div>
                     <div className="package-container">
                         <div className="package-circle">
-                            {/* < GiAmpleDress size="3rem" color="grey" /> */}
                             < GiTravelDress size="3rem"  color="rgba(38, 38, 38, 0.8)" />
                         </div>
                         <span>Fashion & beauty</span>
@@ -74,14 +73,14 @@ export default function Package () {
                         </div>
                         <span>Home & Art</span>
                     </div>
+                </section>
 
-                </div>
                 <div className="arr-container">
                     <Link to="/phone">
-                    <div className="arr-forward">
-                            <IoIosArrowForward />
+                        <div className="arr-forward">
+                            <IoIosArrowForward className="arrow"/>
                         </div>
-                        </Link>
+                    </Link>
                 </div>
             </div>
         </div>

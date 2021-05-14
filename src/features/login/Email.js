@@ -1,3 +1,4 @@
+import React from 'react';
 import Login from '../../components/Login.js';
 import './loginStyles/email.css';
 import { IoIosArrowBack } from "react-icons/io";
