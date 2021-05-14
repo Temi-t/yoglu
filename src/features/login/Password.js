@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from '../../components/Login.js';
+// import Login from '../../components/Login.js';
 import './loginStyles/password.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
@@ -32,8 +32,9 @@ export default function Password() {
     
         return (
         
-            <div>
-                <Login />
+            <div className="blue-bg">
+                <div className="yellow-bg"></div>
+                {/* <Login /> */}
                 <div className="password-page">
                 
                     <div className="arr-back">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from '../../components/Login.js';
+// import Login from '../../components/Login.js';
 import './loginStyles/otp.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
@@ -12,8 +12,9 @@ import OtpInput from "react-otp-input";
 export default function OtpInputs() {
     
     return(
-        <div>
-            <Login />
+        <div className="blue-bg">
+            {/* <Login /> */}
+            <div className="yellow-bg"></div>
             <div className="otp-page">
                 
                     <div className="arr-back">

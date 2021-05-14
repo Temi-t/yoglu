@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from '../../components/Login.js';
+// import Login from '../../components/Login.js';
 import './loginStyles/email.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
@@ -18,8 +18,9 @@ const useStyles = makeStyles({
 export default function Phone () {
     const classes = useStyles();
     return(
-        <div>
-            <Login />
+        <div className="blue-bg">
+            {/* <Login /> */}
+            <div className="yellow-bg"></div>
             <div className="email-page">
                 
                     <div className="arr-back">
