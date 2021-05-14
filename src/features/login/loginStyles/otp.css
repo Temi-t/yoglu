@@ -1,0 +1,51 @@
+.otp-page {
+  position: relative;
+  top: 5rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.arr-back .arrow {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+  margin-left: 1rem;
+}
+.otp-name {
+  font-size: 1.8rem;
+  padding: 6rem 1.4rem;
+  height: 20rem;
+  width: 90%;
+  margin-left: auto;
+}
+.otp-input {
+  width: 80%;
+  height: 5rem;
+  margin-left: auto;
+
+  /* display: flex; */
+  flex-direction: column;
+}
+.check-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  background: yellow;
+}
+
+.check-container {
+  margin-top: 1.5rem;
+  width: 90%;
+  display: flex;
+  flex-direction: row-reverse;
+}

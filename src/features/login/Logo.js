@@ -1,3 +1,4 @@
+import React from 'react';
 import './loginStyles/logo.css';
 import { IoIosArrowUp, IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Link } from 'react-router-dom';

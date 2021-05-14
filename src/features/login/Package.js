@@ -1,13 +1,13 @@
 // import Login from '../../components/Login.js'
+import React from 'react';
 import './loginStyles/package.css';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { GiPineapple, GiSlicedBread } from "react-icons/gi";
-import { FcSmartphoneTablet, FcPhoneAndroid, FcHome } from "react-icons/fc";
+import {  FcPhoneAndroid } from "react-icons/fc";
 import { CgFileDocument } from "react-icons/cg";
-import { GiAmpleDress, GiTravelDress, GiPalette } from "react-icons/gi";
+import {  GiTravelDress } from "react-icons/gi";
 import { GoHome } from "react-icons/go";
-import { IoDocumentsOutline } from "react-icons/io5"
 
 
 
@@ -35,7 +35,7 @@ export default function Package () {
                     what type of packages 
                     do you often ship?</p>
                 </div>
-                <div className="all-packages">
+                <section className="all-packages-grid">
                     <div className="package-container">
                         <div className="package-circle">
                             < GiPineapple size="3rem" color="rgba(38, 38, 38, 0.8)" />
@@ -62,7 +62,6 @@ export default function Package () {
                     </div>
                     <div className="package-container">
                         <div className="package-circle">
-                            {/* < GiAmpleDress size="3rem" color="grey" /> */}
                             < GiTravelDress size="3rem"  color="rgba(38, 38, 38, 0.8)" />
                         </div>
                         <span>Fashion & beauty</span>
@@ -74,15 +73,14 @@ export default function Package () {
                         </div>
                         <span>Home & Art</span>
                     </div>
-
-                </div>
+                </section>
 
                 <div className="arr-container">
-                    <div className="arr-forward">
-                        <Link to="/usernumber">
-                            <IoIosArrowForward className="arrow" />
-                        </Link>
-                    </div>
+                    <Link to="/phone">
+                        <div className="arr-forward">
+                            <IoIosArrowForward className="arrow"/>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
