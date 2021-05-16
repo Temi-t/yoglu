@@ -1,3 +1,4 @@
+// deprecated file
 import './loginStyles/userNumb.css';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
