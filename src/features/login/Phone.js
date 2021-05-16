@@ -19,7 +19,6 @@ export default function Phone () {
     const classes = useStyles();
     return(
         <div className="blue-bg">
-            {/* <Login /> */}
             <div className="yellow-bg"></div>
             <div className="phone-page" >
                 

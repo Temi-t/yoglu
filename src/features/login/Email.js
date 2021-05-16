@@ -1,5 +1,4 @@
 import React from 'react';
-// import Login from '../../components/Login.js';
 import './loginStyles/email.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
@@ -47,9 +46,10 @@ export default function Phone () {
                     />
                     <div style={{ marginTop:"1rem"}}>
                         <span>We Will never spam you. We promise</span>
+                        {/* <small>We Will never spam you. We promise</small> */}
                     </div>
                     <div className="check-container">
-                        <Link to="/#">
+                        <Link to="/userlocation">
                             <div className="check-circle"> 
                                 <BiCheckCircle size="2.5rem" color="white"/>
                                 {/* color="light green"  */}
