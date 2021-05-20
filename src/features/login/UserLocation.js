@@ -5,19 +5,19 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { MdGpsFixed } from "react-icons/md";
 // import { TiLocationOutline } from "react-icons/ti";
 import { ImLocation } from "react-icons/im";
+// import useGeolocation from "../../hooks/useGeolocation"
 
 export default function UserLocation () {
+    // const location = useGeolocation();
     return(
         <div className="user-location-blue-bg">
             <div className="user-location-yellow-bg"></div>
             
-            {/* <div className="arr-back-container"> */}
                 <div className="location-arr-back">
                     <Link to="/email">
                         <IoIosArrowBack className="location-arrow" />
                     </Link>
                 </div>
-            {/* </div> */}
             
             <div className="user-location-page">
                 <div className="location-query">
@@ -26,19 +26,22 @@ export default function UserLocation () {
                     <h1>Location ?</h1>
                 </div>
                 <div className="geo-location">
-                    <div className="use-gps-icon round-container">
-                        < MdGpsFixed />
-                    </div>
+                    <Link to="/finishReg">
+                        <div className=" round-container">
+                            < MdGpsFixed />
+                        </div>
+                    </Link>
                     <div className="my-location">
                         <p>Use my current location</p>
                         <h1>Turn on GPS</h1>
                     </div>
                 </div>
                 <div className="geo-coding">
-                        <div className="find-location-icon round-container">
-                            {/* < TiLocationOutline /> */}
-                            < ImLocation />
-                        </div>
+                        <Link to="/geocoding">
+                            <div className=" round-container">                          
+                                < ImLocation />    
+                            </div>
+                        </Link>
                         <div className="pick-location">
                             <span>Pick a location</span>
                         </div>
