@@ -6,7 +6,6 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { TextField } from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { BiSearchAlt } from "react-icons/bi";
-import { GiDivert } from 'react-icons/gi';
 
 
 // const useStyles = makeStyles((theme) => ({

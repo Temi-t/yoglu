@@ -8,6 +8,7 @@ import Password from '../features/login/Password.js';
 import Email from '../features/login/Email.js';
 import UserLocation from '../features/login/UserLocation.js';
 import GeoCoding from '../features/login/GeoCoding';
+import FinishReg from '../features/login/FinishReg';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { IconContext } from "react-icons";
 
@@ -28,6 +29,7 @@ function App() {
               <Route path="/password" component={Password}  />
               <Route path="/email" component={Email}  />
               <Route path="/userlocation" component={UserLocation}  />
+              <Route path="/finishReg" component={FinishReg}  />
               <Route path="/geocoding" component={GeoCoding}  /> 
             </Switch>
         </div>
