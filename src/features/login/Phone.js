@@ -11,7 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     input: {
         color: 'white',
-        fontSize: '2rem'
+        fontSize: '2rem',
+        width: '90%'
     }
 });
 

@@ -24,9 +24,9 @@ export default function OtpInputs() {
                     </div>
                 
                 <div className="otp-name">
-                    <p><i style={{ color: 'yellow' }}>Verify</i> your phone. Enter the <br />
-                        <i style={{ color: 'yellow' }}> OTP </i> sent to your phone within <br />
-                        <i style={{ color: 'yellow' }}> 59 </i> seconds
+                    <p><i style={{ color: '#FFFF7F' }}>Verify</i> your phone. Enter the <br />
+                        <i style={{ color: '#FFFF7F' }}> OTP </i> sent to your phone within <br />
+                        <i style={{ color: '#FFFF7F' }}> 59 </i> seconds
                     </p>
                 </div>
                 <div className="otp-input" id="otp">

@@ -34,7 +34,7 @@
   }
   
   .location-query p i{
-    color: yellow;
+    color: #FFFF7F;
     font-size: 2rem;
   }
   .location-query p{
@@ -42,14 +42,14 @@
       color: #fff;
   }
   .location-query h1{
-    color: yellow;
+    color: #FFFF7F;
     font-size: 4rem;
   }
   .round-container{
     height: 3.6rem;
     width: 3.6rem;
     border-radius: 50%;
-    background: yellow;
+    background: #FFFF7F;
     display: flex;
     justify-content: center;
     align-items: center;
