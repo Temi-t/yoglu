@@ -1,7 +1,6 @@
 import React, { useState, useCallback, memo } from "react";
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
 import useGeolocation from "../../hooks/useGeolocation";
-// import { grey } from "@material-ui/core/colors";
 
 const containerStyle = {
     width: '100vw',
@@ -73,7 +72,7 @@ function Map() {
             }
             
         </GoogleMap>
-    ) : <p style={{textAlign: "center"}}>Map Loading...</p>
+    ) : <p style={{paddingLeft: "5rem"}}>Map Loading...</p>
 
 }
 

@@ -10,7 +10,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     input: {
         color: 'white',
-        fontSize: '2rem'
+        fontSize: '2rem',
+        width: "90%"
     }
 });
 
@@ -45,7 +46,7 @@ export default function Phone () {
                         
                     />
                     <div style={{ marginTop:"1rem"}}>
-                        <span>We Will never spam you. We promise</span>
+                        <span>We will never spam you. We promise</span>
                         {/* <small>We Will never spam you. We promise</small> */}
                     </div>
                     <div className="check-container">

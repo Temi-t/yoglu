@@ -1,5 +1,4 @@
 import React from 'react';
-// import Login from '../../components/Login.js';
 import './loginStyles/password.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
@@ -9,9 +8,18 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles({
+    input: {
+        color: 'white',
+        fontSize: '2rem',
+        width: '7.5rem'
+    }
+});
 
 export default function Password() {
+    const classes = useStyles();
     const [values, setValues] = React.useState({
         password: "",
         showPassword: false,
@@ -34,7 +42,6 @@ export default function Password() {
         
             <div className="blue-bg">
                 <div className="yellow-bg"></div>
-                {/* <Login /> */}
                 <div className="password-page">
                 
                     <div className="arr-back">
@@ -52,7 +59,7 @@ export default function Password() {
                                 type={values.showPassword ? "text" : "password"}
                                 onChange={handlePasswordChange("password")}
                                 value={values.password}
-                                placeholder = "***********"
+                                placeholder = "********"
                                 endAdornment={
                                     <InputAdornment position="end">
                                         <IconButton
@@ -63,11 +70,15 @@ export default function Password() {
                                         </IconButton>
                                     </InputAdornment>
                                 }
+                                inputProps={{
+                                    className: classes.input,
+                                }}
                             
                             /><br />
                             <Input
                                 type = {"password"}
                                 placeholder="Confirm Password"
+                                style={{color: 'white'}}
                             />
                         <div className="check-container">
                             <Link to="/email">

@@ -14,10 +14,10 @@ import { makeStyles } from '@material-ui/core/styles';
 // });
 
 const useStyles = makeStyles({
-    // textField: {},
     input: {
         color: 'white',
-        fontSize: '2rem'
+        fontSize: '2rem',
+        width: '90%'
     }
 });
 
@@ -40,10 +40,7 @@ export default function UserName () {
                     <h1>Name</h1>
                 </div>
                 <div className="username-input">
-                    {/* <input type="text" placeholder="John Doe"/> */}
-
                     <TextField 
-                        // className={classes.textField}
                         id="standard-basic" 
                         label="Name"
                         placeholder="John Doe"
@@ -52,15 +49,6 @@ export default function UserName () {
                             className: classes.input,
                         }}
                     />
-                    {/* <UserInput 
-                        id="standard-basic" 
-                        label="Name"
-                        // helperText="e.g. John Doe"
-                        placeholder="John Doe"
-                        required
-                    /> */}
-
-                   
 
                     <div className="check-container">
                         <Link to="/package">

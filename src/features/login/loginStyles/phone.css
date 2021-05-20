@@ -1,4 +1,3 @@
-/* edited *******************/
 .yellow-bg{
   background: #FFFF7F;
   height: 4vh;
@@ -10,10 +9,6 @@
   background: #1E4072; 
 }
 .phone-page {
-  /* position: relative;
-  top: 5rem;
-  left: 0; */
-  /* edited**************** */
   margin-top: 2rem;
   width: 100%;
   display: flex;
