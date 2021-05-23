@@ -27,6 +27,7 @@ function Map() {
         // const bounds = new window.google.maps.LatLngBounds();
         // map.fitBounds(bounds);
         setMap(map)
+        console.log('Map details: ',map)
     },[])
 
     const onUnmount = useCallback(function callback(map) {

@@ -9,6 +9,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import { makeStyles } from '@material-ui/core/styles';
+import { useValues } from '../../contexts/RegisterContext';
 
 const useStyles = makeStyles({
     input: {
@@ -20,10 +21,11 @@ const useStyles = makeStyles({
 
 export default function Password() {
     const classes = useStyles();
-    const [values, setValues] = React.useState({
-        password: "",
-        showPassword: false,
-    });
+    const [values, setValues] = useValues();
+    // const [values, setValues] = React.useState({
+    //     password: "",
+    //     showPassword: false,
+    // });
   
     const handleClickShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });

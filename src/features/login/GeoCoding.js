@@ -26,12 +26,12 @@ const useStyles = makeStyles({
 export default function GeoCoding () {
     const classes = useStyles();
     return (
-        <div className="geo-location-blue-bg">
-            <div className="geo-location-yellow-bg"></div>
+        <div className="geo-coding-blue-bg">
+            <div className="geo-coding-yellow-bg"></div>
             <div className="search-header">
-                <div className="geo-loc-arr-back">
+                <div className="geo-arr-back">
                     <Link to="/userlocation">
-                        <IoIosArrowBack className="geo-loc-arrow" />
+                        <IoIosArrowBack className="geo-arrow" />
                     </Link>
                 </div>
                 <div>
