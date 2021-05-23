@@ -11,6 +11,7 @@ import GeoCoding from '../features/login/GeoCoding';
 import FinishReg from '../features/login/FinishReg';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { IconContext } from "react-icons";
+import RegisterProvider from '../contexts/RegisterContext.js';
 
 function App() {
   const iconStyle = {
@@ -20,6 +21,7 @@ function App() {
     <IconContext.Provider value={iconStyle} >
       <Router>
         <div className="App">
+          <RegisterProvider>
             <Switch>
               <Route path="/yoglu" exact component={Logo} />
               <Route path="/username" component={UserName} />
@@ -32,6 +34,7 @@ function App() {
               <Route path="/finishReg" component={FinishReg}  />
               <Route path="/geocoding" component={GeoCoding}  /> 
             </Switch>
+          </RegisterProvider>
         </div>
       </Router>
     </IconContext.Provider>

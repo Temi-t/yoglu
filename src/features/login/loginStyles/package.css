@@ -4,13 +4,13 @@
     width: 100%;
   }
   .blue-bg{
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     background: #1E4072; 
   }
 .package-page{
     padding-top: 3rem;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     /* background: rgba(255,255,255, 0.3); */
 }
