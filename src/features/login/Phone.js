@@ -1,7 +1,7 @@
 import React from 'react';
 // import Login from '../../components/Login.js';
 import './loginStyles/phone.css';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
@@ -44,14 +44,21 @@ export default function Phone () {
                         }}
                     />
                     
-                    <div className="check-container">
-                        <Link to="/otpInputs">
+                    <div className="phone-check-container">
+                        {/* <Link to="/otpInputs"> */}
                             <div className="check-circle"> 
                                 <BiCheckCircle size="2.5rem" color="white"/>
                                 {/* color="light green"  */}
                             </div>
-                        </Link>
+                        {/* </Link> */}
                     </div>
+                </div>
+                <div className="phone-arr-container">
+                    <Link to="/otpInputs">
+                        <div className="phone-arr-forward">
+                            <IoIosArrowForward />
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

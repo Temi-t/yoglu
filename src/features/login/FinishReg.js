@@ -7,8 +7,8 @@ import Map from "./Map";
   
 
 export default function FinishReg () {
-    const userLocation = useGeolocation();
-    console.log("userLocation: ", userLocation)
+    const userLocDetails = useGeolocation();
+    console.log("userLocation: ", userLocDetails)
    
     return (
         <div className="finish-reg-blue-bg">

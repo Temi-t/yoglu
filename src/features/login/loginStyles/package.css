@@ -4,22 +4,18 @@
     width: 100%;
   }
   .blue-bg{
-    /* height: 100%; */
     width: 100%;
     background: #1E4072; 
   }
 .package-page{
     padding-top: 3rem;
-    height: 100vh;
+    height: 96vh;
     width: 100%;
-    /* background: rgba(255,255,255, 0.3); */
 }
 .arr-back{
-    /* background: grey; */
     width: 5rem;
 }
 .arr-back .arrow{
-    /* background: rgba(255,255,255,0.5); */
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
@@ -36,7 +32,6 @@
       font-size: 1.5rem;
   }
   .all-packages-grid{
-      /* background: rgba(158, 64, 64, 0.3);  */
       width: 90%;
       margin: auto;
       display: grid;
@@ -44,10 +39,8 @@
       grid-template-columns: repeat(3, 1fr);
   }
   .package-container{
-      /* background: rgba(61, 100, 76, 0.6);  */
       width: 6rem;
       height: 8rem;
-      /* color: white; */
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -56,35 +49,56 @@
       color: white;
   }
   .package-circle{
-      background: #FFFF7F;
-      height: 5rem;
-      width: 5rem;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    background: #FFFF7F;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .arr-forward .arrow{
+  .pkg-arr-forward {
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
-    /* background: pink; */
   }
-  .arr-container{
-      width: 100%;
-      display: flex;
-      flex-direction: row-reverse;
-      margin-left: -1rem;
-      margin-top: 2rem;
+  .pkg-arr-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: -1rem;
+    margin-top: 2rem;
   }
+
+
+  @media(max-width: 280px){
+    .all-packages-grid{
+      margin: auto;
+      gap: 0;
+  }
+  }
+  
   @media(max-width: 340px){
     .all-packages-grid{
-        width: 95%;
-        /* background: grey; */
+      width: 95%;
     }
+  }
+  @media(min-height: 812px){
+    .pkg-arr-container{
+      margin-top: 10rem;
+    }
+    .package-circle{
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+  @media(max-height: 568px){
+    .package-page{
+      padding-top: 0;
+  }
   }

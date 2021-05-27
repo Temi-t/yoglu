@@ -1,7 +1,7 @@
 import React from 'react';
 // import Login from '../../components/Login.js';
 import './loginStyles/otp.css';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack,IoIosArrowForward } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import OtpInput from "react-otp-input";
@@ -34,15 +34,21 @@ export default function OtpInputs() {
                         onChange={otp => console.log(otp)}
                         numInputs={4}
                         separator={<span>-</span>}
-                        
                     />
                     <div className="check-container">
-                        <Link to="/password">
+                        {/* <Link to="/password"> */}
                             <div className="check-circle"> 
                                 <BiCheckCircle size="2.5rem" color="white"/>
                             </div>
-                        </Link>
+                        {/* </Link> */}
                     </div>
+                </div>
+                <div className="otp-arr-container">
+                    <Link to="/password">
+                        <div className="otp-arr-forward">
+                            <IoIosArrowForward />
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@
 .email-name {
   font-size: 2rem;
   padding: 6rem 2rem;
-  height: 17rem;
+  height: 10rem;
   width: 90%;
   margin-left: auto;
 }
@@ -57,3 +57,33 @@
   display: flex;
   flex-direction: row-reverse;
 }
+.email-arr-forward {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+}
+.email-arr-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 40%;
+}
+@media(min-height: 736px){
+  .email-arr-container{
+    margin-top: 45%;
+  }
+  .email-name {
+    height: 17rem;
+  }
+}
+@media(max-width: 280px){
+  .email-arr-container{
+    margin-top: 60%;
+  }
+}
+

@@ -75,10 +75,10 @@ export default function Package () {
                     </div>
                 </section>
 
-                <div className="arr-container">
+                <div className="pkg-arr-container">
                     <Link to="/phone">
-                        <div className="arr-forward">
-                            <IoIosArrowForward className="arrow"/>
+                        <div className="pkg-arr-forward">
+                            <IoIosArrowForward />
                         </div>
                     </Link>
                 </div>
