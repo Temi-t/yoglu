@@ -27,7 +27,7 @@ function Map() {
         // const bounds = new window.google.maps.LatLngBounds();
         // map.fitBounds(bounds);
         setMap(map)
-        console.log('Map details: ',map)
+        // console.log('Map details: ',map)
     },[])
 
     const onUnmount = useCallback(function callback(map) {
@@ -55,9 +55,8 @@ function Map() {
                     lat: center.lat,
                     lng: center.lng
                 }}
-                // animation="BOUNCE"
-                onClick={()=> setMyLocation(center)} 
-            />  
+                  onClick={()=> setMyLocation(center)}  
+             />   
 
             {
                 myLocation && (
@@ -65,12 +64,26 @@ function Map() {
                         position={{
                             lat: myLocation.lat,
                             lng: myLocation.lng
-                        }}                   
+                        }} 
+                        onCloseClick={()=>
+                            setMyLocation(null)
+                        }                  
                     >
                         <div style={infoDivStyle}>🕵🏻You seem to be around here</div>
                     </InfoWindow>
                 )
-            }
+            } 
+             
+                {/* <marker 
+                {...center ? (
+                    <InfoWindow
+                        position={center}                   
+                    >
+                        <div style={infoDivStyle}>🕵🏻You seem to be around here</div>
+                    </InfoWindow>
+                )  : null}
+                /> */}
+        
             
         </GoogleMap>
     ) : <p style={{paddingLeft: "5rem"}}>Map Loading...</p>

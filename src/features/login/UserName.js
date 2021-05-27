@@ -1,7 +1,7 @@
 // import Login from '../../components/Login.js';
 import React from 'react';
 import './loginStyles/username.css';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
@@ -50,14 +50,21 @@ export default function UserName () {
                         }}
                     />
 
-                    <div className="check-container">
+                    {/* <div className="check-container">
                         <Link to="/package">
                             <div className="check-circle"> 
                                 <BiCheckCircle size="2.5rem" color="white"/>
-                                {/* color="light green"  */}
                             </div>
                         </Link>
-                    </div>
+                    </div> */}
+                    
+                </div>
+                <div className="username-arr-container">
+                    <Link to="/package">
+                        <div className="username-arr-forward">
+                            <IoIosArrowForward />
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

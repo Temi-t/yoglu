@@ -1,6 +1,6 @@
 import React from 'react';
 import './loginStyles/email.css';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
@@ -57,6 +57,13 @@ export default function Phone () {
                             </div>
                         </Link>
                     </div>
+                </div>
+                <div className="email-arr-container">
+                    <Link to="/userlocation">
+                        <div className="email-arr-forward">
+                            <IoIosArrowForward />
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

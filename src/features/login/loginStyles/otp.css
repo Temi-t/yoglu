@@ -36,11 +36,12 @@
 }
 .otp-input {
   width: 80%;
-  height: 5rem;
+  height: 4rem;
   margin-left: auto;
-
+  /* background: yellow; */
+  font-size: 3rem;
   /* display: flex; */
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 .check-circle {
   display: flex;
@@ -49,14 +50,69 @@
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
-  /* background: yellow; */
   background: grey;
 
 }
-
 .check-container {
   margin-top: 1.5rem;
   width: 90%;
   display: flex;
   flex-direction: row-reverse;
 }
+.otp-arr-forward {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+}
+.otp-arr-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 15%;
+}
+@media(max-height: 568px){
+  .otp-name {
+    /* padding: 2rem 1.4rem; */
+    height: 15rem;
+  }
+  .otp-arr-container{
+    margin-top: 30%;
+  }
+}
+@media(min-height: 640px){
+  .otp-arr-container{
+    margin-top: 30%;
+  }
+}
+@media(min-height: 812px){
+  .otp-arr-container{
+    margin-top: 40%;
+  }
+  .otp-name{
+    font-size: 1.5em;
+  }
+}
+@media(max-width: 360px){
+  .otp-name {
+    height: 14rem;
+    font-size: 1.4rem;
+    padding: 3rem 1.4rem;
+    /* background: pink; */
+  }
+}
+@media(max-width: 280px){
+  .otp-name {
+    height: 20rem;
+  }
+}
+@media(min-width: 768px){
+  .otp-name {
+    font-size: 2.5rem;
+  }
+}
+

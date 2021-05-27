@@ -1,6 +1,6 @@
 import React from 'react';
 import './loginStyles/password.css';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import IconButton from "@material-ui/core/IconButton";
@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     input: {
         color: 'white',
         fontSize: '2rem',
-        width: '7.5rem'
+        width: '8rem'
     }
 });
 
@@ -80,17 +80,24 @@ export default function Password() {
                             <Input
                                 type = {"password"}
                                 placeholder="Confirm Password"
-                                style={{color: 'white'}}
+                                style={{color: 'white', width: '11.5rem'}}
                             />
                         <div className="check-container">
-                            <Link to="/email">
+                            {/* <Link to="/email"> */}
                                 <div className="check-circle">
                                     <BiCheckCircle size="2.5rem" color="white" />
                                     {/* color="light green"  */}
                                 </div>
-                            </Link>
+                            {/* </Link> */}
                         </div>
                     </div>
+                    <div className="pw-arr-container">
+                    <Link to="/email">
+                        <div className="pw-arr-forward">
+                            <IoIosArrowForward />
+                        </div>
+                    </Link>
+                </div>
                 </div>
             </div>
         )
