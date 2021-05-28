@@ -8,7 +8,9 @@ import Password from '../features/login/Password.js';
 import Email from '../features/login/Email.js';
 import UserLocation from '../features/login/UserLocation.js';
 import GeoCoding from '../features/login/GeoCoding';
+import CurrentLocation from '../features/login/CurrentLocation';
 import FinishReg from '../features/login/FinishReg';
+import FinishReg2 from '../features/login/FinishReg2';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { IconContext } from "react-icons";
 import RegisterProvider from '../contexts/RegisterContext.js';
@@ -31,8 +33,10 @@ function App() {
               <Route path="/password" component={Password}  />
               <Route path="/email" component={Email}  />
               <Route path="/userlocation" component={UserLocation}  />
-              <Route path="/finishReg" component={FinishReg}  />
+              <Route path="/currentLocation" component={CurrentLocation}  />
               <Route path="/geocoding" component={GeoCoding}  /> 
+              <Route path="/finishReg" component={FinishReg}  /> 
+              <Route path="/finishReg2" component={FinishReg2}  />             
             </Switch>
           </RegisterProvider>
         </div>

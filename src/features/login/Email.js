@@ -50,12 +50,12 @@ export default function Phone () {
                         {/* <small>We Will never spam you. We promise</small> */}
                     </div>
                     <div className="check-container">
-                        <Link to="/userlocation">
+                        {/* <Link to="/userlocation"> */}
                             <div className="check-circle"> 
                                 <BiCheckCircle size="2.5rem" color="white"/>
                                 {/* color="light green"  */}
                             </div>
-                        </Link>
+                        {/* </Link> */}
                     </div>
                 </div>
                 <div className="email-arr-container">

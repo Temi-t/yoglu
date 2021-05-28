@@ -1,17 +1,10 @@
-// import Login from '../../components/Login.js';
 import React from 'react';
 import './loginStyles/username.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-// const UserInput = styled(TextField)({
-//     color: "white",
-//     fontSize: 40,
-//     background: "pink"
-// });
 
 const useStyles = makeStyles({
     input: {

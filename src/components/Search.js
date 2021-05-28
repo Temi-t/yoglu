@@ -1,17 +1,14 @@
 import React, {useCallback} from 'react';
-import { useSelectedLocation } from '../contexts/RegisterContext';
+import { useSelectedLocation, useCenter } from '../contexts/RegisterContext';
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
-import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
+import { Combobox, ComboboxInput, ComboboxPopover, ComboboxOption } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 import { BiSearchAlt } from "react-icons/bi";
-// import useMapRef from '../hooks/useMapRef';
-
 
 
 
 export default function Search({mapRef}){
-    // const mapRef = useMapRef();
-    // console.log("map Ref: ", mapRef)
+    const [ setCenter] = useCenter();
     const [selectedLocation, setSelectedLocation] = useSelectedLocation();
     const {ready, value, 
         suggestions: { status, data},
@@ -42,37 +39,36 @@ export default function Search({mapRef}){
     }
     const searchIcon ={
         color: 'white',
-        fontSize: '1.5rem',
+        fontSize: '1rem',
         opacity: '0.5'
     }
     const panTo = useCallback(({lat, lng})=>{
         mapRef.current.panTo({lat, lng});
         mapRef.current.setZoom(12);
-    }, [mapRef]);
+    }, []);
 
     const handleAddress = async(address) =>{
         // shouldFetchData? Boolean from usePlacesAutocomplete
         setValue(address, false);
         clearSuggestions();
-        setSelectedLocation(prevLoc =>({ ...prevLoc, 
-            pickedLocation: address} ));
-    
+        setSelectedLocation(address);
             // selectedLocation.pickedLocation: address
         try{
             const results = await getGeocode({address});
             const {lat, lng} = await getLatLng(results[0]);
             panTo({lat, lng});
+            setCenter({lat,lng})
         } catch(err){
             console.log(err)
         }
-        console.log("selected Location: ",selectedLocation);
-
     }
     return(
         <div className="search">
+            {/* <BiSearchAlt style={searchIcon} /> */}
             <Combobox 
                 onSelect={handleAddress}
             >
+                
                 <ComboboxInput 
                     value={value} 
                     onChange={(e)=>{setValue(e.target.value)}}
@@ -84,13 +80,15 @@ export default function Search({mapRef}){
                 <ComboboxPopover 
                     style={popoverStyle}
                 >
+                    {/* <ComboboxList> */}
                     {/* suggestions from google places */}
                     {
                         status === "OK" && 
-                            data.map((item)=> (
-                                <ComboboxOption key={item.id} value={item.description} />
+                            data.map((item,i)=> (
+                                <ComboboxOption key={"item_"+ i} value={item.description} />
                             ) )
                     }
+                    {/* </ComboboxList> */}
                 </ComboboxPopover>
 
             </Combobox>

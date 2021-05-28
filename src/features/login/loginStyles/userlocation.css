@@ -78,6 +78,10 @@
   color: white;
   font-size: 2rem;
 }
+.geocode-arr-forward{
+  font-size: 2rem;
+  color: white;
+}
 
 
 @media(max-width: 375px){
@@ -102,25 +106,43 @@
 }
 .geo-coding{
   gap: 1rem;
-  grid-template-columns: 3rem 10rem 4rem;
+  grid-template-columns: 3rem 12rem 4rem;
 }
 .geo-coding .pick-location{
   font-size: 1.3rem;
 }
 }
    
-@media(max-width: 280px){
-  .geo-coding{
-    gap: 0rem;
-  }
-}
-/* @media(min-width: 760px){
-  .user-location-page{
-  height: 95vh;
-  }
-} */
 @media(min-width: 400px){
   .user-location-page{
   height: 95vh;
   }
+}
+@media(max-width: 280px){
+  .geo-coding{
+    gap: 0rem;
+    grid-template-columns: 3rem 9rem 4rem;
+    width: 95%;
+  }
+  .geo-coding .pick-location{
+    font-size: 1rem;
+  }
+  .geo-location .my-location p{
+    color: white;
+    font-size: 1.2rem;
+    width: 90%;
+  }
+  /* .location-query p, .location-query h1{
+    width: 95%;
+  }
+  .geo-location .my-location h1{
+    width: 95%;
+  }
+  .location-query{
+    width: 98%;
+  }
+  .my-location{
+    width: 98%;
+  } */
+  
 }
