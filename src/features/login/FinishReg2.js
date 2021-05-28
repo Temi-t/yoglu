@@ -4,18 +4,14 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
-// import useGeolocation from "../../hooks/useGeolocation"
-import {useSelectedLocation, useLocDetails} from '../../contexts/RegisterContext';
+import { useLocDetails} from '../../contexts/RegisterContext';
 import ReverseGeoCode from './ReverseGeoCode';
 
 
 export default function FinishReg () {
-    // const currentLocDetails = useLocDetails();
-    //  console.log("My Location===> ",currentLocDetails)
-    // useReverseGeoCode()
-    // const location = useGeolocation();
-    const [selectedLocation, setSelectedLocation] = useSelectedLocation();
-    // setSelectedLocation(currentLocDetails);
+    const currentLocDetails = useLocDetails();
+     console.log("My Location===> ",currentLocDetails)
+
     const pStyle={
         color: 'white',
         fontSize: '2rem'
@@ -34,21 +30,20 @@ export default function FinishReg () {
                 <div className="finish-location">
                     <p>Your</p>
                     <h1>Location :</h1>
-                    {/* <ReverseGeoCode/> */}
                 </div>
     
                {
-                   selectedLocation ?
+                   currentLocDetails.country?
                 (<div className="user-location">
                             <div className=" marker-container">                          
                                 < ImLocation />    
                             </div>
                         <div className="selected-location">
                             <span>
-                                {selectedLocation } 
+                                <ReverseGeoCode/>    
                             </span>
                         </div>
-                        <div className="x-container" onClick={()=>(setSelectedLocation(''))}>
+                        <div className="x-container">
                             <AiOutlineClose className="x-icon" />
                         </div>                                            
                 </div>) : <p style={pStyle}>No selected location</p>

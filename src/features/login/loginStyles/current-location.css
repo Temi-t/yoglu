@@ -1,0 +1,51 @@
+.current-loc-yellow-bg{
+    background: #FFFF7F;
+    height: 4vh;
+    width: 100%;
+  }
+.current-loc-blue-bg{
+    height: 100vh;
+    width: 100%;
+    background: #1E4072; 
+  } 
+.current-loc-arr-back{
+    margin-top: 1rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.current-loc-arrow{
+    color: #fff;
+    font-size: 2rem;
+}
+.map-display{
+    height: 50%;
+    width: 100%;
+    margin-top: 2rem;
+    color: #fff;
+    font-size: 2rem;
+}
+.map-display p{
+  width: 100%;
+}
+.current-loc-arr-forward {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+}
+.current-loc-arr-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: -1rem;
+  margin-top: 10%;
+}

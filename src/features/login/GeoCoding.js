@@ -1,37 +1,13 @@
 import React, { useRef, useCallback } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import './loginStyles/geocoding.css';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-// import { TextField } from '@material-ui/core';
-// import InputAdornment from '@material-ui/core/InputAdornment';
-// import { BiSearchAlt } from "react-icons/bi";
 import { useCenter } from "../../contexts/RegisterContext";
-import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import Search from '../../components/Search';
-// import useMapRef from '../../hooks/useMapRef';
 import useMapChecker from '../../hooks/useMapChecker';
 
-// import { useSelectedLocation } from "../../contexts/RegisterContext";
-// import useGeolocation from "../../hooks/useGeolocation";
-// import { mapStyles } from "./loginStyles/mapStyles";
-// import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
-// import { Combobox, ComboboxInput, ComboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
-
-
-// const useStyles = makeStyles((theme) => ({
-//     margin: {
-//       margin: theme.spacing(1),
-//     },
-//   }));
-const useStyles = makeStyles({
-    input:{
-        margin: "1rem",
-        color: "white",
-        fontSize: "2rem",
-        width: "90%"
-    }
-})
   
 
 // const libraries = ["places"];
@@ -41,27 +17,15 @@ const mapContainerStyle = {
 };
 const options = {
     // styles: mapStyles
-    // disableDefaultUI: true,
-    
+    // disableDefaultUI: true, 
 }
 
 
 
 export default function GeoCoding () {
     const {isLoaded, loadError} = useMapChecker();
-    // const mapRef = useMapRef();
     const [center] = useCenter();
-    // const [selectedLocation, setSelectedLocation] = useSelectedLocation();
-    // const userLocation = useGeolocation();
-    // const center = {
-    //     lat: userLocation.coordinates.lat,
-    //     lng: userLocation.coordinates.lng
-    // };
-    // const classes = useStyles();
-    // const {isLoaded, loadError} = useLoadScript({
-    //     googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY,
-    //     libraries,
-    // });
+    
     const mapRef = useRef();
     const onMapLoad = useCallback((map)=>{
         mapRef.current = map
@@ -80,23 +44,6 @@ export default function GeoCoding () {
                         <IoIosArrowBack className="geo-arrow" />
                     </Link>
                 </div>
-                {/* <div>
-                    <TextField
-                        id="standard-search"
-                        type="search"
-                        placeholder="search"
-                        InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start"> */}
-                                {/* < BiSearchAlt /> */}
-                                {/* <Search /> */}
-                            {/* </InputAdornment>
-                        ),
-                        className: classes.input
-                        }}
-                    />
-                </div> */}
-
 
                 {/* google map library should be loaded before loading useplacesAutocomplete */}
                 {window.google && <Search mapRef={mapRef} />}
@@ -105,7 +52,7 @@ export default function GeoCoding () {
                 <h1>yoglu <span role='img' aria-label="plane">✈</span></h1>
                 {
                     !isLoaded ? 
-                        <p>Map loading...</p> :
+                        <p style={{padding: '5rem'}}>Map loading...</p> :
                         (<GoogleMap
                             mapContainerStyle={mapContainerStyle}
                             zoom={12}
@@ -113,27 +60,19 @@ export default function GeoCoding () {
                             options={options}
                             onLoad={onMapLoad}
                         >
-                            <Marker 
-                                position={center}
-                                onclick={()=>{}}
-                            />
+                            { center &&
+                                <Marker 
+                                    position={center}
+                                    onclick={()=>{}}
+                                />
+                            }
 
                         </GoogleMap>) 
                 }
-
-                {/* <GoogleMap
-                    mapContainerStyle={mapContainerStyle}
-                    zoom={12}
-                    center={center}
-                >
-
-                </GoogleMap> */}
             </div>
-
-
             
             <div className="arr-container">
-                <Link to="/phone">
+                <Link to="/finishReg">
                     <div className="arr-forward">
                         <IoIosArrowForward className="arrow"/>
                     </div>

@@ -11,6 +11,8 @@ export const useCenter = () => useContext(centerContext);
 const selectedLocContext = createContext();
 export const useSelectedLocation = () => useContext(selectedLocContext);
 
+const locDetailsContext = createContext();
+export const useLocDetails = () => useContext(locDetailsContext)
 //create a provider that will feed all children
 export default function RegisterProvider ({children}) {
     const [values, setValues] = useState({
@@ -21,10 +23,9 @@ export default function RegisterProvider ({children}) {
     const userLocation = useGeolocation();
     const [center, setCenter] = useState({});
     //user selected location
-    const [selectedLocation, setSelectedLocation] = useState({
-        ownLocation: '',
-        pickedLocation: ''
-    });
+    const [selectedLocation, setSelectedLocation] = useState('');
+    //location details from reverse geocoding(making use of latlng to get address)
+    const [locDetails, setLocDetails] = useState({});
 
     useEffect(()=>{
         setCenter(
@@ -33,13 +34,15 @@ export default function RegisterProvider ({children}) {
                 lng: userLocation.coordinates.lng
             })
         )
-    }, [userLocation]);
+    }, []);
     return(
         //transfer the value of context to children of the provider
         <valueContext.Provider value={[values, setValues]}>
             <centerContext.Provider value={[center, setCenter]}>
                 <selectedLocContext.Provider value={[selectedLocation, setSelectedLocation]}>
-                    {children}
+                    <locDetailsContext.Provider value={[locDetails, setLocDetails]}>
+                        {children}
+                    </locDetailsContext.Provider>
                 </selectedLocContext.Provider>
             </centerContext.Provider>
         </valueContext.Provider>
