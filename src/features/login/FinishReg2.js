@@ -1,20 +1,39 @@
-import React from 'react';
-import './loginStyles/finish-reg.css';
+import React, {useState} from 'react';
+import './loginStyles/finish-reg2.css';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
-import { useLocDetails} from '../../contexts/RegisterContext';
+// import { useLocDetails} from '../../contexts/RegisterContext';
 import ReverseGeoCode from './ReverseGeoCode';
+// import {useGeolocation} from '../../hooks/useGeolocation';
+// import { SettingsInputAntennaTwoTone } from '@material-ui/icons';
+import { useNeighborhood, useUserState, useCountry} from '../../contexts/RegisterContext';
+
+
+
 
 
 export default function FinishReg () {
-    const currentLocDetails = useLocDetails();
-     console.log("My Location===> ",currentLocDetails)
+    // const [ setNeighborhood] = useNeighborhood();
+    // const [ setUserState] = useUserState();
+    
 
+    
+    // const reverse = ReverseGeoCode();
+    // const [neighborhood, setNeighborhood, userState, setUserState, country, setCountry] = reverse;
+
+    // const [ country, setCountry] = useCountry();
+    const [clear, setClear] = useState(false);
+
+
+    // const currentLocDetails = useLocDetails();
+    //  console.log("My Location===> ",currentLocDetails)
+    // console.log(neighborhood, userState, country)
     const pStyle={
         color: 'white',
-        fontSize: '2rem'
+        fontSize: '2rem',
+        display: clear? '': 'none'
     }
     return(
         <div className="finish-blue-bg">
@@ -26,28 +45,39 @@ export default function FinishReg () {
                     </Link>
                 </div>
             
-            <div className="finish-page">
-                <div className="finish-location">
-                    <p>Your</p>
-                    <h1>Location :</h1>
+            
+            <div >
+            {/* {country ? */}
+                <div className="finish-page" >
+                    <div className="finish-location">
+                        <p>Your</p>
+                        <h1>Location :</h1>
+                    </div>
+                    {
+                        !clear ?
+                        // country ?
+                        (<div className="user-location" >
+                                    <div className=" marker-container">                          
+                                        < ImLocation />    
+                                    </div>
+                                <div className="selected-location">
+                                    <span>
+                                        <ReverseGeoCode/>
+                                        {/* {neighborhood}, {userState}, {country} */}
+
+                                    </span>
+                                </div>
+                                <div className="x-container" 
+                                    onClick={()=>setClear(!clear)}
+                                    // onClick={()=>setCountry('')}
+                                >
+                                    <AiOutlineClose className="x-icon" />
+                                </div>                                            
+                        </div>) : <p style={pStyle}>No selected location</p>
+                    }
                 </div>
-    
-               {
-                   currentLocDetails.country?
-                (<div className="user-location">
-                            <div className=" marker-container">                          
-                                < ImLocation />    
-                            </div>
-                        <div className="selected-location">
-                            <span>
-                                <ReverseGeoCode/>    
-                            </span>
-                        </div>
-                        <div className="x-container">
-                            <AiOutlineClose className="x-icon" />
-                        </div>                                            
-                </div>) : <p style={pStyle}>No selected location</p>
-                }
+                {/* : <span>...</span>     */}
+            {/* } */}
             </div>
         </div>
     )

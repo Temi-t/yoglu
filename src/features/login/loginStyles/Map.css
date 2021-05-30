@@ -1,0 +1,30 @@
+.current-map-display .logo {
+  color: #1e4072;
+  position: absolute;
+  top: 6.5rem;
+  left: 13rem;
+  z-index: 2;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 320px) {
+  .current-map-display .logo {
+    top: 11rem;
+    left: 16rem;
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 280px) {
+  .current-map-display .logo {
+    top: 11rem;
+    left: 14rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-height: 1366px) {
+  .current-map-display .logo {
+    top: 8rem;
+    left: 13.5rem;
+  }
+}

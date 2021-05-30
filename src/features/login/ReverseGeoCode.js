@@ -1,114 +1,171 @@
 import React,{useEffect, useState} from 'react';
-import useGeolocation from '../../hooks/useGeolocation';
-import {useLocDetails} from '../../contexts/RegisterContext';
+import AbortController from 'abort-controller';
+import { useNeighborhood, useUserState, useCountry} from '../../contexts/RegisterContext';
+import axios from './axios';
+import {useGeolocation} from '../../hooks/useGeolocation';
+// import {useLocDetails} from '../../contexts/RegisterContext';
 
 
 export default function ReverseGeoCode  ()  {
-    // const [selectedLocation, setSelectedLocation] = useSelectedLocation();
     const geoLoc = useGeolocation();
-    const [data, setData] = useState();
-    const [locDetails, setLocDetails] = useLocDetails();
     const lat = geoLoc.coordinates.lat;
     const lng = geoLoc.coordinates.lng;
     console.log('geoLoc: ', geoLoc)
+    // const url = `latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
+    // const geoLoc = useGeolocation();
+    const [data, setData] = useState(null);
+
+    // const [locDetails, setLocDetails] = useLocDetails();
+    // const lat = geoLoc.coordinates.lat;
+    // const lng = geoLoc.coordinates.lng;
+    // console.log('geoLoc: ', geoLoc)
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
     
-        //fetching from google
+    // const [neighborhood, setNeighborhood] = useNeighborhood();
+    // const [userState, setUserState] = useUserState();
+    // const [country, setCountry] = useCountry();
+
+    const [neighborhood, setNeighborhood] = useState('');
+    const [userState, setUserState] = useState('');
+    const [country, setCountry] = useState('');
+
+    
+        //****************** Async 1 fetching from google
     //  useEffect(()=>{
     //     const fetchData = async()=>{
     //         const res =await fetch(url)
     //         const jsonResponse = await res.json()
-    //         console.log('Effect: ', jsonResponse)
-    //         setData(jsonResponse);
-    //             data.results[0].address_components.map((item, i)=>{
-    //                return item.types.includes("country")? 
-    //                setLocDetails(prev => ({
-    //                    ...prev,
-    //                  country: item.long_name
-    //                 })) : 
-    //                null;
-    //             })
+    //         setData(jsonResponse.results[0].address_components);
+    //             console.log('APIdata: ', data)
+    //         return data
     //     }
     //     fetchData();
-    // },[])
+        
+
+    //      data.map((item, i)=>{
+    //          item.types.includes("neighborhood")? 
+    //         setNeighborhood(item.long_name) : 
+    //         null;
+    //      })
+
+    //      data.map((item, i)=>{
+    //         return item.types.includes("administrative_area_level_1")? 
+    //         setUserState(item.long_name) : 
+    //         null;
+    //      })
+
+    //      data.map((item, i)=>{
+    //         return item.types.includes("country")? 
+    //         setCountry(item.long_name) : 
+    //         null;
+    //      })
+    //     // console.log("country is : ", country)
+    //     return ()=> console.log("clean up")
+    // },)
     
+//****************** Async 2 fetching from google
+
+    // useEffect(()=>{
+    //     async function fetchData(){
+    //         const response = await axios.get(url);
+    //         setData(response.results[0].address_components)
+    //         return response
+    //     }
+    //     fetchData()
+    //     console.log("DATA==> ",data)
+    // }, );
 
 
-
+//****************** PROMISE fetching 
     useEffect(()=>{
+        const abortCont = new AbortController();
+        const signal = abortCont.signal;
+    //   setTimeout(()=>{
         const fetchData = () =>{
-            fetch(url)
-            .then(response =>{
-                if(response.ok){
-                    return response.json()
-                }
-                throw new Error('Request failed!')
-            }, networkError =>{
-                console.log(networkError.message)
-            })
-            .then(jsonResponse => {
-                setData(jsonResponse);
-                console.log('Data===> ',data)
-                data.results[0].address_components.map((item, i)=>{
-                    return item.types.includes("state")? 
-                    setLocDetails(prev => ({
-                        ...prev,
-                      country: item.long_name
-                     })) : null;
+            fetch(url, signal )
+                .then(response =>{
+                    if(response.ok){
+                        // abortCont.abort()
+                        // console.log(response)
+                        return response.json()
+                    }
+                    throw response
+                    // throw new Error('Request failed!')
+                // }, networkError =>{
+                    // console.log(networkError.message)
                  })
+                 .then(jsResp=>{ 
+                    const vrr= jsResp;
+                    console.log('xvarrrx: ', vrr)
 
-                data.results[0].address_components.map((item, i)=>{
-                   return item.types.includes("country")? 
-                   setLocDetails(prev => ({
-                       ...prev,
-                     country: item.long_name
-                    })) : null;
+                    vrr.results[0].address_components.map((item)=>{
+                        return item.types.includes("neighborhood")? 
+                        setNeighborhood(item.long_name) : null;
+                     })
+                     console.log("neighborhood: ", neighborhood);
+
+                     vrr.results[0].address_components.map((item)=>{
+                        return item.types.includes("administrative_area_level_1")? 
+                        setUserState(item.long_name) : null;
+                     })
+                     console.log("administrative_area_level_1: ", userState)
+
+                     vrr.results[0].address_components.map((item)=>{
+                        return item.types.includes("country")? 
+                        setCountry(item.long_name) : null;
+                     })
+                     console.log("country ", country)
+
+
+                     
+
+
+                    
                 })
 
-                
-            })
-            .catch(err => console.warn(err.message));
-        }
-        fetchData ()
-    },[locDetails]);
+                .catch(err => {
+                    if(err.name === "AbortError"){
+                        console.log('***fetch aborted')
+                    } else { console.warn(err.message) }
+                });
 
-    return(
-        <p>{locDetails.state ,locDetails.country}</p>
+                
+
+               
+                    // console.log('Data===> ',data)   
+
+                    // data.results[0].address_components.map((item, i)=>{
+                    //     return item.types.includes("neighborhood")? 
+                    //     setNeighborhood(item.long_name) : null;
+                    //  })
+
+                    // data.results[0].address_components.map((item, i)=>{
+                    //     return item.types.includes("administrative_area_level_1")? 
+                    //     setUserState(item.long_name) : null;
+                    //  })
+
+                    // data.results[0].address_components.map((item, i)=>{
+                    // return item.types.includes("country")? 
+                    // setCountry(item.long_name) : null;
+                    // })
+
+        }
+        fetchData()
+
+    //   }, 3000)
+      
+
+      return () => console.log('cleanUp')
+        // return () => abortCont.abort();
+    },);
+
+
+    return (
+        <div style={{ color: 'white'}}>
+            <span>{neighborhood} </span>
+            <span>{userState} </span>
+            <span>{country}</span>
+        </div>
+        // [neighborhood, setNeighborhood, userState, setUserState, country, setCountry]
     )
   }
-
-
-// var geocoding = new require('reverse-geocoding');
-
-// export default function useReverseGeoCode(){
-//     const geoLoc = useGeolocation();
-//     var config = {
-//         'lat': geoLoc.coordinates.lat,
-//         'lng': geoLoc.coordinates.lng
-//     };
-//     const reverseData = geocoding(config, function(err, data){
-//         if(err){
-//             console.log(err);
-//         }else{
-//             console.log('DATA===> ',data);
-//         }
-//     });
-//     return 
-// }
-
-
-
-
-
-
-
-// dataPart.map(part =>{
-                    // country inside dataPart array[x]
-                    // if(part.types.includes("country")){
-                        // console.log('HERE: ', dataPart.long_name)
-                        // setLocDetails({
-                        //     country: dataPart.long_name
-                        // })
-                        // return locDetails
-                    // }
-                // });

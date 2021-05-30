@@ -1,12 +1,11 @@
 import React, { useState, useCallback, memo } from "react";
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
-import useGeolocation from "../../hooks/useGeolocation";
-
+import {useGeolocation} from "../../hooks/useGeolocation";
+import './loginStyles/Map.css';
 const containerStyle = {
     width: '100vw',
     height: '400px'
 };
-
 
 
 function Map() {
@@ -15,6 +14,7 @@ function Map() {
         lat: userLocation.coordinates.lat,
         lng: userLocation.coordinates.lng
     };
+    
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY
@@ -40,53 +40,67 @@ function Map() {
         fontSize: '1.5rem'
     }
 
-    return isLoaded ? (
-        <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={12}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
-            // heading={1}
-        >
-    
-            <Marker 
-                position={{
-                    lat: center.lat,
-                    lng: center.lng
-                }}
-                  onClick={()=> setMyLocation(center)}  
-             />   
-
+    return (
+        <div>
             {
-                myLocation && (
-                    <InfoWindow
-                        position={{
-                            lat: myLocation.lat,
-                            lng: myLocation.lng
-                        }} 
-                        onCloseClick={()=>
-                            setMyLocation(null)
-                        }                  
+                isLoaded ? (
+                <div>
+                     <h1 className="logo">yoglu 
+                        <span role='img' aria-label="plane">✈</span>
+                    </h1>
+                    <GoogleMap
+                        mapContainerStyle={containerStyle}
+                        center={center}
+                        zoom={12}
+                        onLoad={onLoad}
+                        onUnmount={onUnmount}
+                        // heading={1}
                     >
-                        <div style={infoDivStyle}>🕵🏻You seem to be around here</div>
-                    </InfoWindow>
-                )
-            } 
-             
-                {/* <marker 
-                {...center ? (
-                    <InfoWindow
-                        position={center}                   
-                    >
-                        <div style={infoDivStyle}>🕵🏻You seem to be around here</div>
-                    </InfoWindow>
-                )  : null}
-                /> */}
-        
-            
-        </GoogleMap>
-    ) : <p style={{paddingLeft: "5rem"}}>Map Loading...</p>
+                
+                        <Marker 
+                            position={{
+                                lat: center.lat,
+                                lng: center.lng
+                            }}
+                            onClick={()=> setMyLocation(center)}  
+                        />   
+
+                        {
+                            myLocation && (
+                                <InfoWindow
+                                    position={{
+                                        lat: myLocation.lat,
+                                        lng: myLocation.lng
+                                    }} 
+                                    onCloseClick={()=>
+                                        setMyLocation(null)
+                                    }                  
+                                >
+                                    <div style={infoDivStyle}>
+                                        <span role='img' aria-label='search guide'>🕵🏻</span>
+                                        You seem to be around here
+                                    </div>
+                                   
+                                </InfoWindow>
+                            )
+                        } 
+                        
+                            {/* <marker 
+                            {...center ? (
+                                <InfoWindow
+                                    position={center}                   
+                                >
+                                    <div style={infoDivStyle}>🕵🏻You seem to be around here</div>
+                                </InfoWindow>
+                            )  : null}
+                            /> */}  
+                    </GoogleMap>
+                    </div>) : 
+                    <p style={{paddingLeft: "5rem", color: "white", fontSize: '2rem'}}>Map Loading...</p>
+               }
+        </div>
+    )
+
 
 }
 

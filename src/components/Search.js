@@ -8,7 +8,7 @@ import { BiSearchAlt } from "react-icons/bi";
 
 
 export default function Search({mapRef}){
-    const [ setCenter] = useCenter();
+    const [ center, setCenter] = useCenter();
     const [selectedLocation, setSelectedLocation] = useSelectedLocation();
     const {ready, value, 
         suggestions: { status, data},
@@ -57,7 +57,7 @@ export default function Search({mapRef}){
             const results = await getGeocode({address});
             const {lat, lng} = await getLatLng(results[0]);
             panTo({lat, lng});
-            setCenter({lat,lng})
+            setCenter({lat,lng});
         } catch(err){
             console.log(err)
         }
