@@ -1,9 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import AbortController from 'abort-controller';
 import { useNeighborhood, useUserState, useCountry} from '../../contexts/RegisterContext';
-import axios from './axios';
 import {useGeolocation} from '../../hooks/useGeolocation';
-// import {useLocDetails} from '../../contexts/RegisterContext';
 
 
 export default function ReverseGeoCode  ()  {
@@ -11,20 +9,12 @@ export default function ReverseGeoCode  ()  {
     const lat = geoLoc.coordinates.lat;
     const lng = geoLoc.coordinates.lng;
     console.log('geoLoc: ', geoLoc)
-    // const url = `latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
-    // const geoLoc = useGeolocation();
+    
     const [data, setData] = useState(null);
 
-    // const [locDetails, setLocDetails] = useLocDetails();
-    // const lat = geoLoc.coordinates.lat;
-    // const lng = geoLoc.coordinates.lng;
-    // console.log('geoLoc: ', geoLoc)
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
     
-    // const [neighborhood, setNeighborhood] = useNeighborhood();
-    // const [userState, setUserState] = useUserState();
-    // const [country, setCountry] = useCountry();
-
+   
     const [neighborhood, setNeighborhood] = useState('');
     const [userState, setUserState] = useState('');
     const [country, setCountry] = useState('');
@@ -85,14 +75,12 @@ export default function ReverseGeoCode  ()  {
             fetch(url, signal )
                 .then(response =>{
                     if(response.ok){
-                        // abortCont.abort()
-                        // console.log(response)
                         return response.json()
                     }
                     throw response
                     // throw new Error('Request failed!')
-                // }, networkError =>{
-                    // console.log(networkError.message)
+                }, networkError =>{
+                    console.log(networkError.message)
                  })
                  .then(jsResp=>{ 
                     const vrr= jsResp;
@@ -115,12 +103,6 @@ export default function ReverseGeoCode  ()  {
                         setCountry(item.long_name) : null;
                      })
                      console.log("country ", country)
-
-
-                     
-
-
-                    
                 })
 
                 .catch(err => {
@@ -132,22 +114,7 @@ export default function ReverseGeoCode  ()  {
                 
 
                
-                    // console.log('Data===> ',data)   
-
-                    // data.results[0].address_components.map((item, i)=>{
-                    //     return item.types.includes("neighborhood")? 
-                    //     setNeighborhood(item.long_name) : null;
-                    //  })
-
-                    // data.results[0].address_components.map((item, i)=>{
-                    //     return item.types.includes("administrative_area_level_1")? 
-                    //     setUserState(item.long_name) : null;
-                    //  })
-
-                    // data.results[0].address_components.map((item, i)=>{
-                    // return item.types.includes("country")? 
-                    // setCountry(item.long_name) : null;
-                    // })
+                    
 
         }
         fetchData()
@@ -166,6 +133,5 @@ export default function ReverseGeoCode  ()  {
             <span>{userState} </span>
             <span>{country}</span>
         </div>
-        // [neighborhood, setNeighborhood, userState, setUserState, country, setCountry]
     )
   }

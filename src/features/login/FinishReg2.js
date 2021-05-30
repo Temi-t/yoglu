@@ -7,7 +7,6 @@ import { ImLocation } from "react-icons/im";
 // import { useLocDetails} from '../../contexts/RegisterContext';
 import ReverseGeoCode from './ReverseGeoCode';
 // import {useGeolocation} from '../../hooks/useGeolocation';
-// import { SettingsInputAntennaTwoTone } from '@material-ui/icons';
 import { useNeighborhood, useUserState, useCountry} from '../../contexts/RegisterContext';
 
 

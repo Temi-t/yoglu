@@ -7,12 +7,7 @@ import Map from "./Map";
   
 
 export default function CurrentLocation () {
-    // useCallback(
-    //     () => {
-    //         const userLocDetails = useGeolocation()
-    //         return userLocDetails
-    //     },[]
-    // )
+   
     const userLocDetails = useGeolocation();
     console.log("userLocation: ", userLocDetails)
   
@@ -27,10 +22,7 @@ export default function CurrentLocation () {
                         </Link>
                     </div>            
                     <div className="current-map-display">
-                        {/* <p>{
-                            userLocation.loaded ? 
-                            JSON.stringify(userLocation) : " Authorize geolocation to use current location"
-                        }</p> */}
+
                         <Map />               
                     </div>
                     <div className="current-loc-arr-container">
