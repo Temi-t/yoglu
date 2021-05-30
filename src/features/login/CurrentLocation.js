@@ -2,7 +2,7 @@ import React from 'react';
 import './loginStyles/current-location.css';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import useGeolocation from "../../hooks/useGeolocation";
+import {useGeolocation} from "../../hooks/useGeolocation";
 import Map from "./Map";
   
 
@@ -26,7 +26,7 @@ export default function CurrentLocation () {
                             <IoIosArrowBack className="current-loc-arrow" />
                         </Link>
                     </div>            
-                    <div className="map-display">
+                    <div className="current-map-display">
                         {/* <p>{
                             userLocation.loaded ? 
                             JSON.stringify(userLocation) : " Authorize geolocation to use current location"
