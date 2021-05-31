@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import AbortController from 'abort-controller';
-import { useNeighborhood, useUserState, useCountry} from '../../contexts/RegisterContext';
+// import { useNeighborhood, useUserState, useCountry} from '../../contexts/RegisterContext';
 import {useGeolocation} from '../../hooks/useGeolocation';
 
 
@@ -10,7 +10,7 @@ export default function ReverseGeoCode  ()  {
     const lng = geoLoc.coordinates.lng;
     console.log('geoLoc: ', geoLoc)
     
-    const [data, setData] = useState(null);
+    // const [data, setData] = useState(null);
 
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
     

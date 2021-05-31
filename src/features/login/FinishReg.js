@@ -1,12 +1,12 @@
 import React from 'react';
-import './loginStyles/finish-reg.css';
+import './loginStyles/finishreg.css';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
 // import useGeolocation from "../../hooks/useGeolocation"
-import {useSelectedLocation, useLocDetails} from '../../contexts/RegisterContext';
-import ReverseGeoCode from './ReverseGeoCode';
+import {useSelectedLocation} from '../../contexts/RegisterContext';
+// import ReverseGeoCode from './ReverseGeoCode';
 
 
 export default function FinishReg () {

@@ -1,7 +1,7 @@
 import React, { useState, useCallback, memo } from "react";
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
 import {useGeolocation} from "../../hooks/useGeolocation";
-import './loginStyles/Map.css';
+import './loginStyles/map.css';
 const containerStyle = {
     width: '100vw',
     height: '400px'
@@ -20,7 +20,7 @@ function Map() {
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY
     });
 
-    const [map, setMap] = useState(null);
+    const [ setMap] = useState(null);
     const [myLocation, setMyLocation] = useState(null);
 
     const onLoad = useCallback(function callback(map){
