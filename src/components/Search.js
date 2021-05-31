@@ -36,6 +36,7 @@ export default function Search({mapRef}){
         background: '#1E4072',
         fontSize: '1.5rem',
         color: 'white',
+        zIndex: '3'
     }
     const searchIcon ={
         color: 'white',

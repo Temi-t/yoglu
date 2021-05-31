@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './loginStyles/finish-reg2.css';
+import './loginStyles/finishreg2.css';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
@@ -7,8 +7,7 @@ import { ImLocation } from "react-icons/im";
 // import { useLocDetails} from '../../contexts/RegisterContext';
 import ReverseGeoCode from './ReverseGeoCode';
 // import {useGeolocation} from '../../hooks/useGeolocation';
-// import { SettingsInputAntennaTwoTone } from '@material-ui/icons';
-import { useNeighborhood, useUserState, useCountry} from '../../contexts/RegisterContext';
+// import { useNeighborhood, useUserState, useCountry} from '../../contexts/RegisterContext';
 
 
 
