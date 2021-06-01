@@ -20,7 +20,7 @@ function Map() {
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY
     });
 
-    const [ setMap] = useState(null);
+    const [ map, setMap] = useState(null);
     const [myLocation, setMyLocation] = useState(null);
 
     const onLoad = useCallback(function callback(map){
