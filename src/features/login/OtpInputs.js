@@ -1,15 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import Login from '../../components/Login.js';
 import './loginStyles/otp.css';
 import { IoIosArrowBack,IoIosArrowForward } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
-import OtpInput from "react-otp-input";
 
 
 
+const OTPBox = () => {
+    const [otp, setOtp] = useState(new Array(4).fill(""))
+    
+    const handleChange = (element, index) => {
+        if (isNaN(element.value)) return false;
 
-export default function OtpInputs() {
+        setOtp([...otp.map((d, idx) => (idx === index) ? element.value : d)]);
+
+        if (element.nextSibling) {
+            element.nextSibling.focus();
+        }
+    };
+
     
     return(
         <div className="blue-bg">
@@ -29,20 +39,23 @@ export default function OtpInputs() {
                         <i style={{ color: '#FFFF7F' }}> 59 </i> seconds
                     </p>
                 </div>
-                <div className="otp-input" id="otp">
-                   <OtpInput
-                        onChange={otp => console.log(otp)}
-                        numInputs={4}
-                        separator={<span>-</span>}
-                    />
-                    <div className="check-container">
-                        {/* <Link to="/password"> */}
-                            <div className="check-circle"> 
-                                <BiCheckCircle size="2.5rem" color="white"/>
-                            </div>
-                        {/* </Link> */}
-                    </div>
-                </div>
+                <div className="otp-input" >
+                        {
+                            otp.map((data, index) => {
+                            return (
+                                <input
+                                    className="otp-field"
+                                    type="text"
+                                    name="otp"
+                                    maxLength="1"
+                                    key={index}
+                                    value={data}
+                                    onChange={e => handleChange(e.target, index)}
+                                    onFocus = {e => e.target.select()}
+                               />
+                       );
+                        })}
+                        </div>
                 <div className="otp-arr-container">
                     <Link to="/password">
                         <div className="otp-arr-forward">
@@ -54,3 +67,4 @@ export default function OtpInputs() {
         </div>
     )
 }
+export default OTPBox;
