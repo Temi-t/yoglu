@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-=======
 import React, {useState} from 'react';
->>>>>>> master
 // import Login from '../../components/Login.js';
 import './loginStyles/otp.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-// import OtpInput from "react-otp-input";
-=======
-
->>>>>>> master
 
 
 const OTPBox = () => {
@@ -28,14 +19,8 @@ const OTPBox = () => {
         }
     };
 
-<<<<<<< HEAD
-export default function OtpInputs() {
-
-    return (
-=======
     
     return(
->>>>>>> master
         <div className="blue-bg">
             {/* <Login /> */}
             <div className="yellow-bg"></div>
@@ -53,25 +38,6 @@ export default function OtpInputs() {
                         <i style={{ color: '#FFFF7F' }}> 59 </i> seconds
                     </p>
                 </div>
-<<<<<<< HEAD
-                <div className="otp-input" id="otp">
-                    {/* <OtpInput
-                        onChange={otp => console.log(otp)}
-                        numInputs={4}
-                        separator={<span>-</span>}
-                    /> */}
-
-
-
-                    <div className="check-container">
-                        {/* <Link to="/password"> */}
-                        <div className="check-circle">
-                            <BiCheckCircle size="2.5rem" color="white" />
-                        </div>
-                        {/* </Link> */}
-                    </div>
-                </div>
-=======
                 <div className="otp-input" >
                         {
                             otp.map((data, index) => {
@@ -89,7 +55,6 @@ export default function OtpInputs() {
                        );
                         })}
                         </div>
->>>>>>> master
                 <div className="otp-arr-container">
                     <Link to="/password">
                         <div className="otp-arr-forward">
