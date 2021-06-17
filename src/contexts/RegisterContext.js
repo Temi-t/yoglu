@@ -1,5 +1,7 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import {useGeolocation} from "../hooks/useGeolocation";
+import {Auth} from "aws-amplify";
+
 
 //creating contexts for each state and exporting them
 const valueContext = createContext();
@@ -23,7 +25,48 @@ export const useSelectedLocation = () => useContext(selectedLocContext);
 
 const locDetailsContext = createContext();
 export const useLocDetails = () => useContext(locDetailsContext)
-//create a provider that will feed all children
+
+const submitContext = createContext();
+export const useHandleSubmit = () => useContext(submitContext);
+
+
+
+
+
+
+
+
+//random number for userID
+const rand = () => {
+    return Math.floor((Math.random() * 1000000) + 1)
+  }
+  //details like username, email etc.
+  const addDetail = (detail) => {
+    const newDetail = {id:rand(), ...detail};
+    setUserDetail(prevDetail => [...prevDetail, newDetail])
+    console.log(userDetail)
+  }
+
+  //for submit/finish button
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    //addDetail func is created above to add each detail
+    addDetail({
+        userName, userPassword, userPackage, userPhone, userEmail, userPosition
+    })
+    let response = await Auth.signIn(userDetail.userEmail, userDetail.userPassword);
+    console.log('Auth response ==> ', response)
+    setUserName('');
+    setUserPhone('');
+    setUserEmail('');
+    
+  }
+
+
+
+
+
+
 export default function RegisterProvider ({children}) {
     const [values, setValues] = useState({
         password: "",
@@ -49,9 +92,25 @@ export default function RegisterProvider ({children}) {
         )
     }, []);
 
+    //user data input
+    const [userName, setUserName] = useState('');
+    const [userPackage, setUserPackage] = useState('');
+    const [userPhone, setUserPhone] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [userPosition, setUserPosition] = useState('');
+    const [userDetail, setUserDetail] = useState([]);
+    const [userPassword, setUserPassword] = useState('');
+    // const [userCoords, setUserCoords] = useState('');
+
+// on password validation, setUserPassword(values.password)-------------------------------------
+    const validate = (currentState) => {
+        currentState && `set${currentState[0].toUpper()}${currentState[1,currentState.length]}`(!currentState)
+    }
+
+
 
     return(
-        //transfer the value of context to children of the provider
+        //transfer these values of context to children of the provider
         <valueContext.Provider value={[values, setValues]}>
             <centerContext.Provider value={[center, setCenter]}>
                 <selectedLocContext.Provider value={[selectedLocation, setSelectedLocation]}>
@@ -59,7 +118,9 @@ export default function RegisterProvider ({children}) {
                         <neighborhoodContext.Provider value={[neighborhood, setNeighborhood]}>
                             <userStateContext.Provider value={[userState, setUserState]}>
                                 <countryContext.Provider value={[country, setCountry]}>
-                                    {children}
+                                    <submitContext.Provider value={handleSubmit}>
+                                        {children}
+                                    </submitContext.Provider>
                                 </countryContext.Provider>                     
                             </userStateContext.Provider>
                         </neighborhoodContext.Provider>
