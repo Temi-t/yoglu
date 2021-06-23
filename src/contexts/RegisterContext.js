@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import {useGeolocation} from "../hooks/useGeolocation";
-import {Auth} from "aws-amplify";
+// import {Auth} from "aws-amplify";
 
 
 //creating contexts for each state and exporting them
@@ -24,11 +24,13 @@ const selectedLocContext = createContext();
 export const useSelectedLocation = () => useContext(selectedLocContext);
 
 const locDetailsContext = createContext();
-export const useLocDetails = () => useContext(locDetailsContext)
+export const useLocDetails = () => useContext(locDetailsContext);
 
 const submitContext = createContext();
 export const useHandleSubmit = () => useContext(submitContext);
 
+// const validateContext = createContext();
+// export const useValidateNow = () => useContext(validateContext);
 
 
 
@@ -36,31 +38,17 @@ export const useHandleSubmit = () => useContext(submitContext);
 
 
 
-//random number for userID
-const rand = () => {
-    return Math.floor((Math.random() * 1000000) + 1)
-  }
-  //details like username, email etc.
-  const addDetail = (detail) => {
-    const newDetail = {id:rand(), ...detail};
-    setUserDetail(prevDetail => [...prevDetail, newDetail])
-    console.log(userDetail)
-  }
 
-  //for submit/finish button
-  const handleSubmit = (e) =>{
-    e.preventDefault();
-    //addDetail func is created above to add each detail
-    addDetail({
-        userName, userPassword, userPackage, userPhone, userEmail, userPosition
-    })
-    let response = await Auth.signIn(userDetail.userEmail, userDetail.userPassword);
-    console.log('Auth response ==> ', response)
-    setUserName('');
-    setUserPhone('');
-    setUserEmail('');
-    
-  }
+
+
+
+//   const validateNow = (currentState) => {
+//     // if(!currentState) return
+//     const len = currentState.length
+//     const stateSetter = `set${currentState[0].toUpperCase()}${currentState.slice(1,len+1)}`
+//     stateSetter(!currentState.valid)
+//     console.log(stateSetter)
+//     }
 
 
 
@@ -93,24 +81,50 @@ export default function RegisterProvider ({children}) {
     }, []);
 
     //user data input
-    const [userName, setUserName] = useState('');
+    const [userName, setUserName] = useState({name:'', valid: false});
+    const [userPhone, setUserPhone] = useState({phoneNumb:'', valid: false});
+    const [userEmail, setUserEmail] = useState({email:'', valid: false});
     const [userPackage, setUserPackage] = useState('');
-    const [userPhone, setUserPhone] = useState('');
-    const [userEmail, setUserEmail] = useState('');
     const [userPosition, setUserPosition] = useState('');
     const [userDetail, setUserDetail] = useState([]);
     const [userPassword, setUserPassword] = useState('');
     // const [userCoords, setUserCoords] = useState('');
 
 // on password validation, setUserPassword(values.password)-------------------------------------
-    const validate = (currentState) => {
-        currentState && `set${currentState[0].toUpper()}${currentState[1,currentState.length]}`(!currentState)
-    }
+    // const validate = (currentState) => {
+    //     currentState && `set${currentState[0].toUpper()}${currentState[1,currentState.length]}`(!currentState)
+    // }
+    
 
 
+    // random number for userID
+const rand = () => {
+    return Math.floor((Math.random() * 1000000) + 1)
+  }
+//   details like username, email etc.
+  const addDetail = (detail) => {
+    const newDetail = {id:rand(), ...detail};
+    setUserDetail(prevDetail => [...prevDetail, newDetail])
+    console.log(userDetail)
+  }
+  //for submit/finish button
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    // addDetail func is created above to add each detail
+    addDetail({
+        userName, userPassword, userPackage, userPhone, userEmail, userPosition
+    })
+    // let response = await Auth.signIn(userDetail.userEmail, userDetail.userPassword);
+    // console.log('Auth response ==> ', response)
+    // setUserName(prev=>({...prev, name: ''}));
+    // setUserPhone(prev=>({...prev, phoneNumb: ''}));
+    // setUserEmail(prev=>({...prev, email: ''}));
+  }
+
+
+        //transfer these values of context to children of the provider
 
     return(
-        //transfer these values of context to children of the provider
         <valueContext.Provider value={[values, setValues]}>
             <centerContext.Provider value={[center, setCenter]}>
                 <selectedLocContext.Provider value={[selectedLocation, setSelectedLocation]}>
@@ -119,7 +133,9 @@ export default function RegisterProvider ({children}) {
                             <userStateContext.Provider value={[userState, setUserState]}>
                                 <countryContext.Provider value={[country, setCountry]}>
                                     <submitContext.Provider value={handleSubmit}>
-                                        {children}
+                                        {/* <validateContext.Provider value={validateNow}> */}
+                                            {children}
+                                        {/* </validateContext.Provider> */}
                                     </submitContext.Provider>
                                 </countryContext.Provider>                     
                             </userStateContext.Provider>

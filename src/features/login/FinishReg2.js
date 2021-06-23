@@ -80,7 +80,7 @@ export default function FinishReg () {
                     }
 
                     <form onSubmit={handleSubmit}>
-                        <Button type="submit">Finish</Button>
+                        <button type="submit">Finish</button>
                     </form>
                 </div>
                 {/* : <span>...</span>     */}

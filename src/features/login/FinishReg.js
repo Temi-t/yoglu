@@ -56,7 +56,7 @@ export default function FinishReg () {
                 </div>) : <p style={pStyle}>No selected location</p>
                 }
                 <form onSubmit={handleSubmit}>
-                    <Button type="submit">Finish</Button>
+                    <button type="submit">Finish</button>
                 </form>
             </div>
         </div>
