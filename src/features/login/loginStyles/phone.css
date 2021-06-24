@@ -1,11 +1,11 @@
-.yellow-bg{
-  background: #FFFF7F;
+.yellow-bg {
+  background: #ffff7f;
   height: 4vh;
   width: 100%;
 }
-.blue-bg{
+.blue-bg {
   width: 100%;
-  background: #1E4072; 
+  background: #1e4072;
 }
 .phone-page {
   margin-top: 2rem;
@@ -39,14 +39,13 @@
   margin-left: auto;
   flex-direction: column;
 }
-.check-circle {
+.phone-check-circle {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
-  background: grey;
 }
 
 .phone-check-container {
@@ -65,29 +64,29 @@
   font-size: 2rem;
   color: white;
 }
-.phone-arr-container{
+.phone-arr-container {
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
   margin-top: 5rem;
 }
-@media(min-height: 736px){
-  .phone-arr-container{
+@media (min-height: 736px) {
+  .phone-arr-container {
     margin-top: 35%;
   }
 }
-@media(min-height: 568px){
+@media (min-height: 568px) {
   .phone-name {
     padding: 1rem 2rem;
     height: 15rem;
   }
 }
-@media(min-height: 640px){
+@media (min-height: 640px) {
   .phone-name {
     padding: 5rem 2rem;
     height: 15rem;
   }
-  .phone-arr-container{
+  .phone-arr-container {
     margin-top: 35%;
   }
 }

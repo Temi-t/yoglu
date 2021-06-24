@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './loginStyles/email.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useUserEmail } from '../../contexts/RegisterContext';
 
 
 const useStyles = makeStyles({
@@ -16,7 +17,12 @@ const useStyles = makeStyles({
 });
 
 export default function Phone () {
+    const [emailOk, setEmailOk] = useState(false);
+    const [userEmail, setUserEmail] = useUserEmail();
     const classes = useStyles();
+    const userCheck = () => {
+        setEmailOk(prev => !prev)
+    }
     return(
         <div className="blue-bg">
             {/* <Login /> */}
@@ -38,6 +44,10 @@ export default function Phone () {
                         type = "email"
                         id="standard-basic" 
                         label="Email"
+                        onChange={(e)=>setUserEmail({
+                            ...userEmail,
+                            email: e.target.value
+                        })}
                         placeholder="john@example.com"
                         required
                         InputProps={{
@@ -50,12 +60,12 @@ export default function Phone () {
                         {/* <small>We Will never spam you. We promise</small> */}
                     </div>
                     <div className="check-container">
-                        {/* <Link to="/userlocation"> */}
-                            <div className="check-circle"> 
-                                <BiCheckCircle size="2.5rem" color="white"/>
-                                {/* color="light green"  */}
+                            <div className="email-check-circle"
+                                onClick={userCheck}
+                                style={{backgroundColor: `${ emailOk ? "#ffff7f": "grey"}`}}
+                            > 
+                                <BiCheckCircle size="2.5rem" color={emailOk ? "#00b33c" : "#fff"}/>
                             </div>
-                        {/* </Link> */}
                     </div>
                 </div>
                 <div className="email-arr-container">

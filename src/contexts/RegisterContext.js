@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import {useGeolocation} from "../hooks/useGeolocation";
-// import {Auth} from "aws-amplify";
 
 
 //creating contexts for each state and exporting them
@@ -26,12 +25,23 @@ export const useSelectedLocation = () => useContext(selectedLocContext);
 const locDetailsContext = createContext();
 export const useLocDetails = () => useContext(locDetailsContext);
 
-const submitContext = createContext();
-export const useHandleSubmit = () => useContext(submitContext);
+const regSubmitContext = createContext();
+export const useHandleRegSubmit = () => useContext(regSubmitContext);
 
 // const validateContext = createContext();
 // export const useValidateNow = () => useContext(validateContext);
 
+const userPasswordContext = createContext();
+export const useUserPassword = () => useContext(userPasswordContext);
+
+const userNameContext = createContext();
+export const useUserName = () => useContext(userNameContext);
+
+const userNumberContext = createContext();
+export const useUserNumber = () => useContext(userNumberContext);
+
+const userEmailContext = createContext();
+export const useUserEmail = () => useContext(userEmailContext);
 
 
 
@@ -81,8 +91,8 @@ export default function RegisterProvider ({children}) {
     }, []);
 
     //user data input
-    const [userName, setUserName] = useState({name:'', valid: false});
-    const [userPhone, setUserPhone] = useState({phoneNumb:'', valid: false});
+    const [userName, setUserName] = useState({nameInput:'', valid: false});
+    const [userNumber, setUserNumber] = useState({phoneNumb:'', valid: false});
     const [userEmail, setUserEmail] = useState({email:'', valid: false});
     const [userPackage, setUserPackage] = useState('');
     const [userPosition, setUserPosition] = useState('');
@@ -103,23 +113,23 @@ const rand = () => {
   }
 //   details like username, email etc.
   const addDetail = (detail) => {
-    const newDetail = {id:rand(), ...detail};
+    const newDetail = {id: rand(), ...detail};
     setUserDetail(prevDetail => [...prevDetail, newDetail])
-    console.log(userDetail)
   }
+
+    let nameInput = userName && userName.nameInput;
+    let phone = userNumber && userNumber.phoneNumb;
+    let email = userEmail && userEmail.email
   //for submit/finish button
-  const handleSubmit = async (e) =>{
+  const handleRegSubmit = async (e) =>{
     e.preventDefault();
     // addDetail func is created above to add each detail
+    
     addDetail({
-        userName, userPassword, userPackage, userPhone, userEmail, userPosition
+        nameInput, userPassword, userPackage, phone, email, userPosition
     })
-    // let response = await Auth.signIn(userDetail.userEmail, userDetail.userPassword);
-    // console.log('Auth response ==> ', response)
-    // setUserName(prev=>({...prev, name: ''}));
-    // setUserPhone(prev=>({...prev, phoneNumb: ''}));
-    // setUserEmail(prev=>({...prev, email: ''}));
   }
+  console.log("UserDetails===> ",userDetail)
 
 
         //transfer these values of context to children of the provider
@@ -132,11 +142,19 @@ const rand = () => {
                         <neighborhoodContext.Provider value={[neighborhood, setNeighborhood]}>
                             <userStateContext.Provider value={[userState, setUserState]}>
                                 <countryContext.Provider value={[country, setCountry]}>
-                                    <submitContext.Provider value={handleSubmit}>
-                                        {/* <validateContext.Provider value={validateNow}> */}
-                                            {children}
-                                        {/* </validateContext.Provider> */}
-                                    </submitContext.Provider>
+                                    <regSubmitContext.Provider value={handleRegSubmit}>
+                                        <userPasswordContext.Provider value={[userPassword, setUserPassword]}>
+                                            <userNameContext.Provider value={[userName, setUserName]}>
+                                                <userNumberContext.Provider value={[userNumber, setUserNumber]}>
+                                                    {/* <validateContext.Provider value={validateNow}> */}
+                                                    <userEmailContext.Provider value={[userEmail, setUserEmail]}>
+                                                        {children}
+                                                    </userEmailContext.Provider>
+                                                    {/* </validateContext.Provider> */}
+                                                </userNumberContext.Provider>
+                                            </userNameContext.Provider>
+                                        </userPasswordContext.Provider>
+                                    </regSubmitContext.Provider>
                                 </countryContext.Provider>                     
                             </userStateContext.Provider>
                         </neighborhoodContext.Provider>
