@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './loginStyles/username.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import {useUserName} from "../../contexts/RegisterContext";
 
 
 const useStyles = makeStyles({
@@ -16,6 +18,13 @@ const useStyles = makeStyles({
 
 export default function UserName () {
     const classes = useStyles();
+    const [userName, setUserName] = useUserName();
+    const [userNameOk, setUserNameOk] = useState(false);
+    const validate = (e) => {
+        setUserNameOk(prev => !prev)
+    }
+    console.log('username ', userName)
+
     return(
         <div className="blue-bg">
             {/* <Login /> */}
@@ -37,6 +46,9 @@ export default function UserName () {
                         id="standard-basic" 
                         label="Name"
                         placeholder="John Doe"
+                        onChange={(e)=> setUserName({
+                            ...userName, nameInput: e.target.value
+                        })}
                         required
                         InputProps={{
                             className: classes.input,
@@ -50,6 +62,15 @@ export default function UserName () {
                             </div>
                         </Link>
                     </div> */}
+                    <div className="username-check-container">
+                        <div className="username-check-circle" 
+                            onClick={validate}
+                            style={{backgroundColor: `${ userNameOk ? "#ffff7f": "grey"}`}}
+                        >
+                            
+                            <BiCheckCircle size="2.5rem" color={userNameOk ? "#00b33c" : "#fff"} />
+                        </div>
+                    </div>
                     
                 </div>
                 <div className="username-arr-container">

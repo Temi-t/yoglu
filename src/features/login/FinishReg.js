@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
-import {useSelectedLocation, useHandleSubmit} from '../../contexts/RegisterContext';
+import {useSelectedLocation, useHandleRegSubmit} from '../../contexts/RegisterContext';
 // import ReverseGeoCode from './ReverseGeoCode';
 // import useGeolocation from "../../hooks/useGeolocation"
 
@@ -15,7 +15,7 @@ export default function FinishReg () {
     //  console.log("My Location===> ",currentLocDetails)
     // useReverseGeoCode()
     // const location = useGeolocation();
-    const handleSubmit = useHandleSubmit();
+    const handleRegSubmit = useHandleRegSubmit();
     const [selectedLocation, setSelectedLocation] = useSelectedLocation();
     // setSelectedLocation(currentLocDetails);
     const pStyle={
@@ -55,7 +55,7 @@ export default function FinishReg () {
                         </div>                                            
                 </div>) : <p style={pStyle}>No selected location</p>
                 }
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleRegSubmit}>
                     <button type="submit">Finish</button>
                 </form>
             </div>

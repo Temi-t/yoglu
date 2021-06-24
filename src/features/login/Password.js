@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './loginStyles/password.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BiCheckCircle } from "react-icons/bi";
@@ -9,7 +9,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import { makeStyles } from '@material-ui/core/styles';
-import { useValues } from '../../contexts/RegisterContext';
+import { useValues, useUserPassword } from '../../contexts/RegisterContext';
 
 const useStyles = makeStyles({
     input: {
@@ -22,13 +22,18 @@ const useStyles = makeStyles({
 export default function Password() {
     const classes = useStyles();
     const [values, setValues] = useValues();
+    const [userPassword, setUserPassword] = useUserPassword();
+    const [passwordOk, setPasswordOk] = useState(false);
     // const [values, setValues] = React.useState({
     //     password: "",
     //     showPassword: false,
     // });
   
     const handleClickShowPassword = () => {
-        setValues({ ...values, showPassword: !values.showPassword });
+        setValues({ 
+            ...values, 
+            showPassword: !values.showPassword 
+        });
     };
   
     const handleMouseDownPassword = (event) => {
@@ -38,6 +43,11 @@ export default function Password() {
     const handlePasswordChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
+
+    const userCheck = () => {
+        setUserPassword(values.password);
+        setPasswordOk(prev => !prev)
+    }
 
     
         return (
@@ -83,12 +93,13 @@ export default function Password() {
                                 style={{color: 'white', width: '11.5rem'}}
                             />
                         <div className="check-container">
-                            {/* <Link to="/email"> */}
-                                <div className="check-circle">
-                                    <BiCheckCircle size="2.5rem" color="white" />
-                                    {/* color="light green"  */}
+                                <div className="password-check-circle" 
+                                    onClick={userCheck}
+                                    style={{backgroundColor: `${ passwordOk ? "#ffff7f": "grey"}`}}
+                                >
+                                    
+                                    <BiCheckCircle size="2.5rem" color={passwordOk ? "#00b33c" : "#fff"} />
                                 </div>
-                            {/* </Link> */}
                         </div>
                     </div>
                     <div className="pw-arr-container">

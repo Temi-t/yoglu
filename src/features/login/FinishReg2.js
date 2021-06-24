@@ -6,7 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
 // import { useLocDetails} from '../../contexts/RegisterContext';
 import ReverseGeoCode from './ReverseGeoCode';
-import { useHandleSubmit } from '../../contexts/RegisterContext';
+import { useHandleRegSubmit } from '../../contexts/RegisterContext';
 
 // import {useGeolocation} from '../../hooks/useGeolocation';
 // import { useNeighborhood, useUserState, useCountry} from '../../contexts/RegisterContext';
@@ -25,7 +25,7 @@ export default function FinishReg () {
     // const [neighborhood, setNeighborhood, userState, setUserState, country, setCountry] = reverse;
 
     // const [ country, setCountry] = useCountry();
-    const handleSubmit = useHandleSubmit();
+    const handleRegSubmit = useHandleRegSubmit();
     const [clear, setClear] = useState(false);
 
 
@@ -79,7 +79,7 @@ export default function FinishReg () {
                         </div>) : <p style={pStyle}>No selected location</p>
                     }
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleRegSubmit}>
                         <button type="submit">Finish</button>
                     </form>
                 </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import Login from '../../components/Login.js';
 import './loginStyles/phone.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -6,6 +6,7 @@ import { BiCheckCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useUserNumber } from '../../contexts/RegisterContext';
 
 
 const useStyles = makeStyles({
@@ -17,7 +18,13 @@ const useStyles = makeStyles({
 });
 
 export default function Phone () {
+    const [numberOk, setNumberOk] = useState(false);
+    const [userNumber, setUserNumber] = useUserNumber();
     const classes = useStyles();
+    const userCheck = () => {
+        setNumberOk(prev => !prev)
+    }
+    console.log("userNumber: ", userNumber)
     return(
         <div className="blue-bg">
             <div className="yellow-bg"></div>
@@ -36,21 +43,24 @@ export default function Phone () {
                 <div className="phone-input">
                     <TextField 
                         id="standard-basic" 
-                        // label="Phone Number"
                         placeholder="+234"
                         required
+                        onChange={(e)=> setUserNumber({
+                            ...userNumber,
+                            phoneNumb: e.target.value
+                        })}
                         InputProps={{
                             className: classes.input,
                         }}
                     />
                     
                     <div className="phone-check-container">
-                        {/* <Link to="/otpInputs"> */}
-                            <div className="check-circle"> 
-                                <BiCheckCircle size="2.5rem" color="white"/>
-                                {/* color="light green"  */}
+                            <div className="phone-check-circle"
+                                onClick={userCheck}
+                                style={{backgroundColor: `${ numberOk ? "#ffff7f": "grey"}`}}
+                            > 
+                                <BiCheckCircle size="2.5rem" color={numberOk ? "#00b33c" : "#fff"}/>
                             </div>
-                        {/* </Link> */}
                     </div>
                 </div>
                 <div className="phone-arr-container">

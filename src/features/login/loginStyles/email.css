@@ -1,12 +1,12 @@
-.yellow-bg{
-  background: #FFFF7F;
+.yellow-bg {
+  background: #ffff7f;
   height: 4vh;
   width: 100%;
 }
-.blue-bg{
+.blue-bg {
   width: 100%;
-  background: #1E4072; 
-} 
+  background: #1e4072;
+}
 .email-page {
   padding-top: 2rem;
   height: 96vh;
@@ -40,16 +40,13 @@
   display: center;
   flex-direction: column;
 }
-.check-circle {
+.email-check-circle {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
-  /* background: yellow; */
-  background: grey;
-
 }
 .check-container {
   margin-top: 1.5rem;
@@ -67,23 +64,22 @@
   font-size: 2rem;
   color: white;
 }
-.email-arr-container{
+.email-arr-container {
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
   margin-top: 40%;
 }
-@media(min-height: 736px){
-  .email-arr-container{
+@media (min-height: 736px) {
+  .email-arr-container {
     margin-top: 45%;
   }
   .email-name {
     height: 17rem;
   }
 }
-@media(max-width: 280px){
-  .email-arr-container{
+@media (max-width: 280px) {
+  .email-arr-container {
     margin-top: 60%;
   }
 }
-
